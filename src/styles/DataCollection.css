@@ -60,13 +60,13 @@ header > p:nth-child(2) {
   color: var(--fnt-clr-primary);
   font-family: var(--fnt-primary-bld);
   font-size: 1.3rem;
+  margin-bottom: 15px;
 }
 
 .info-container {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-top: 40px;
 }
 
 .default-input {

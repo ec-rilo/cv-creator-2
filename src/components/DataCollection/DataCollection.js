@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../styles/DataCollection.css';
 import InfoContainer from './InfoContainer';
+import uniqid from 'uniqid';
 
 class DataCollection extends Component {
   render() {
@@ -14,9 +15,9 @@ class DataCollection extends Component {
           <InfoContainer
             categoryName="Personal Information"
             inputArr={[
-              { text: 'First Name', forProp: 'first-name' },
-              { text: 'Last Name', forProp: 'last-name' },
-              { text: 'Title', forProp: 'title' },
+              { text: 'First Name', forProp: 'first-name', key: uniqid() },
+              { text: 'Last Name', forProp: 'last-name', key: uniqid() },
+              { text: 'Title', forProp: 'title', key: uniqid() },
             ]}
           />
         </form>

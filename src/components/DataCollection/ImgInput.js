@@ -7,7 +7,7 @@ class ImgInput extends Component {
 
     return (
       <div className="default-input img-input">
-        <label for={inputInfo.forProp}></label>
+        <label htmlFor={inputInfo.forProp}></label>
         <input
           type="file"
           accept="image/png, image/jpeg"

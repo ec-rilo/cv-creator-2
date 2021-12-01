@@ -11,7 +11,7 @@ class InfoContainer extends Component {
       <div className="info-container">
         <Category name={categoryName} />
         {inputArr.map((input) => {
-          return <DefaultInput inputInfo={input} />;
+          return <DefaultInput key={input.key} inputInfo={input} />;
         })}
       </div>
     );

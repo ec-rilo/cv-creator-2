@@ -6,7 +6,7 @@ class DefaultInput extends Component {
     const { inputInfo } = this.props;
     return (
       <div className="default-input">
-        <label for={inputInfo.forProp}></label>
+        <label htmlFor={inputInfo.forProp}></label>
         <input
           type="text"
           id={inputInfo.forProp}

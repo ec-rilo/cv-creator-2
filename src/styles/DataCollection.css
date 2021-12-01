@@ -60,13 +60,13 @@ header > p:nth-child(2) {
   color: var(--fnt-clr-primary);
   font-family: var(--fnt-primary-bld);
   font-size: 1.3rem;
+  margin-bottom: 15px;
 }
 
 .info-container {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-top: 40px;
 }
 
 .default-input {
@@ -90,4 +90,40 @@ header > p:nth-child(2) {
 
 .default-input > input:nth-child(2)::placeholder {
   font-size: 0.9rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 50px auto;
+  gap: 50px;
+}
+
+/* Img Input */
+
+.img-input {
+  position: relative;
+  margin: 15px 25px;
+  padding: 0 0 0 0;
+  overflow: hidden;
+}
+
+/* Moved to the left -100px to prevent non-cursor that appears on the file button */
+.img-input > input:nth-child(2) {
+  opacity: 0;
+  position: absolute;
+  width: 200%;
+  left: -100px;
+  cursor: pointer;
+}
+
+.img-input > p:nth-child(3) {
+  position: absolute;
+  top: 50%;
+  left: 25px;
+  transform: translate(0, -50%);
+  font-size: 0.9rem;
+  color: #777777;
+  cursor: pointer;
+  pointer-events: none;
 }

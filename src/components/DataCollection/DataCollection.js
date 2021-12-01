@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../../styles/DataCollection.css';
 import InfoContainer from './InfoContainer';
 import Category from './Category';
+import ImgInput from './ImgInput';
 import uniqid from 'uniqid';
 
 class DataCollection extends Component {
@@ -22,6 +23,13 @@ class DataCollection extends Component {
                 { text: 'Last Name', forProp: 'last-name', key: uniqid() },
                 { text: 'Title', forProp: 'title', key: uniqid() },
               ]}
+            />
+            <ImgInput
+              inputInfo={{
+                text: 'Image',
+                forProp: 'image-file',
+                key: uniqid(),
+              }}
             />
           </div>
         </form>

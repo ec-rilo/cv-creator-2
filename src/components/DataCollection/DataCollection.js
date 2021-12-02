@@ -5,6 +5,7 @@ import Category from './Category';
 import TextInput from './TextInput';
 import TelInput from './TelInput';
 import ImgInput from './ImgInput';
+import EmailInput from './EmailInput';
 import uniqid from 'uniqid';
 
 class DataCollection extends Component {
@@ -57,6 +58,13 @@ class DataCollection extends Component {
               inputInfo={{
                 text: 'Phone number',
                 forProp: 'phone',
+                key: uniqid(),
+              }}
+            />
+            <EmailInput
+              inputInfo={{
+                text: 'Email',
+                forProp: 'email',
                 key: uniqid(),
               }}
             />

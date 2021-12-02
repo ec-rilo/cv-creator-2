@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../../styles/DataCollection.css';
-import InfoContainer from './InfoContainer';
 import Category from './Category';
 import TextInput from './TextInput';
 import TelInput from './TelInput';

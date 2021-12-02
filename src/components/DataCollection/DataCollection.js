@@ -5,6 +5,7 @@ import TextInput from './TextInput';
 import TelInput from './TelInput';
 import ImgInput from './ImgInput';
 import EmailInput from './EmailInput';
+import DescriptionInput from './DescriptionInput';
 import uniqid from 'uniqid';
 
 class DataCollection extends Component {
@@ -78,6 +79,13 @@ class DataCollection extends Component {
               inputInfo={{
                 text: 'Linkedin link',
                 forProp: 'linkedin-link',
+                key: uniqid(),
+              }}
+            />
+            <DescriptionInput
+              inputInfo={{
+                text: 'Description',
+                forProp: 'description',
                 key: uniqid(),
               }}
             />

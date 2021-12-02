@@ -31,6 +31,14 @@ class DataCollection extends Component {
                 key: uniqid(),
               }}
             />
+            <InfoContainer
+              categoryName="Personal Information"
+              inputArr={[
+                { text: 'Address', forProp: 'address', key: uniqid() },
+                { text: 'Phone Number', forProp: 'phone-num', key: uniqid() },
+                { text: 'Email', forProp: 'email', key: uniqid() },
+              ]}
+            />
           </div>
         </form>
       </div>

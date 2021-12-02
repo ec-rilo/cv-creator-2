@@ -60,7 +60,6 @@ header > p:nth-child(2) {
   color: var(--fnt-clr-primary);
   font-family: var(--fnt-primary-bld);
   font-size: 1.3rem;
-  margin-bottom: 15px;
 }
 
 .info-container {
@@ -70,7 +69,7 @@ header > p:nth-child(2) {
 }
 
 .default-input-container {
-  margin: auto 25px;
+  margin: 25px 25px 0 25px;
   padding: 0 20px 0 20px;
   height: 35px;
   background-color: var(--tertiary-clr);
@@ -103,7 +102,6 @@ form {
 
 .img-input {
   position: relative;
-  margin: 15px 25px;
   padding: 0 0 0 0;
   overflow: hidden;
 }

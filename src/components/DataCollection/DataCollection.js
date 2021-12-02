@@ -3,6 +3,7 @@ import '../../styles/DataCollection.css';
 import InfoContainer from './InfoContainer';
 import Category from './Category';
 import TextInput from './TextInput';
+import TelInput from './TelInput';
 import ImgInput from './ImgInput';
 import uniqid from 'uniqid';
 
@@ -42,6 +43,20 @@ class DataCollection extends Component {
               inputInfo={{
                 text: 'Image',
                 forProp: 'image-file',
+                key: uniqid(),
+              }}
+            />
+            <TextInput
+              inputInfo={{
+                text: 'Address',
+                forProp: 'address',
+                key: uniqid(),
+              }}
+            />
+            <TelInput
+              inputInfo={{
+                text: 'Phone number',
+                forProp: 'phone',
                 key: uniqid(),
               }}
             />

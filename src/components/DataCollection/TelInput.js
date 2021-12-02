@@ -1,24 +1,21 @@
 import React, { Component } from 'react';
-import '../../styles/DataCollection.css';
 
-class ImgInput extends Component {
+class TelInput extends Component {
   render() {
     const { inputInfo } = this.props;
 
     return (
-      <div className="default-input-container img-input">
+      <div className="default-input-container">
         <label htmlFor={inputInfo.forProp}></label>
         <input
-          type="file"
-          accept="image/png, image/jpeg"
+          type="tel"
           id={inputInfo.forProp}
           placeholder={inputInfo.text}
           required
         ></input>
-        <p>Image</p>
       </div>
     );
   }
 }
 
-export default ImgInput;
+export default TelInput;

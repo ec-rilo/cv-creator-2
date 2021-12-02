@@ -76,7 +76,7 @@ class DataCollection extends Component {
             />
             <TextInput
               inputInfo={{
-                text: 'Linkedin Link',
+                text: 'Linkedin link',
                 forProp: 'linkedin-link',
                 key: uniqid(),
               }}

@@ -49,8 +49,15 @@ class DataCollection extends Component {
             />
             <TextInput
               inputInfo={{
-                text: 'Address',
-                forProp: 'address',
+                text: 'City',
+                forProp: 'city',
+                key: uniqid(),
+              }}
+            />
+            <TextInput
+              inputInfo={{
+                text: 'State',
+                forProp: 'state',
                 key: uniqid(),
               }}
             />

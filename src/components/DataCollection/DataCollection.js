@@ -90,6 +90,44 @@ class DataCollection extends Component {
               }}
             />
           </div>
+          <div className="info-section">
+            <Category name="Experience" />
+            <TextInput
+              inputInfo={{
+                text: 'Position',
+                forProp: 'position',
+                key: uniqid(),
+              }}
+            />
+            <TextInput
+              inputInfo={{
+                text: 'Company',
+                forProp: 'company',
+                key: uniqid(),
+              }}
+            />
+            <TextInput
+              inputInfo={{
+                text: 'location',
+                forProp: 'job-location',
+                key: uniqid(),
+              }}
+            />
+            <TextInput
+              inputInfo={{
+                text: 'From',
+                forProp: 'start-date',
+                key: uniqid(),
+              }}
+            />
+            <TextInput
+              inputInfo={{
+                text: 'To',
+                forProp: 'end-date',
+                key: uniqid(),
+              }}
+            />
+          </div>
         </form>
       </div>
     );

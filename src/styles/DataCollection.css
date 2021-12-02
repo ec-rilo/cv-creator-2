@@ -69,7 +69,7 @@ header > p:nth-child(2) {
   gap: 15px;
 }
 
-.default-input {
+.default-input-container {
   margin: auto 25px;
   padding: 0 20px 0 20px;
   height: 35px;
@@ -78,7 +78,7 @@ header > p:nth-child(2) {
   font-family: var(--fnt-primary);
 }
 
-.default-input > input:nth-child(2) {
+.default-input-container > input:nth-child(2) {
   box-sizing: border-box;
   height: 100%;
   width: 100%;
@@ -88,7 +88,7 @@ header > p:nth-child(2) {
   font-size: 0.9rem;
 }
 
-.default-input > input:nth-child(2)::placeholder {
+.default-input-container > input:nth-child(2)::placeholder {
   font-size: 0.9rem;
 }
 

@@ -6,7 +6,7 @@ class ImgInput extends Component {
     const { inputInfo } = this.props;
 
     return (
-      <div className="default-input img-input">
+      <div className="default-input-container img-input">
         <label htmlFor={inputInfo.forProp}></label>
         <input
           type="file"

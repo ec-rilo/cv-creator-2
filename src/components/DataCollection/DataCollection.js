@@ -75,6 +75,13 @@ class DataCollection extends Component {
                 key: uniqid(),
               }}
             />
+            <TextInput
+              inputInfo={{
+                text: 'Linkedin Link',
+                forProp: 'linkedin-link',
+                key: uniqid(),
+              }}
+            />
           </div>
         </form>
       </div>

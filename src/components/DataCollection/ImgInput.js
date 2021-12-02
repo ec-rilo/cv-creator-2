@@ -13,6 +13,7 @@ class ImgInput extends Component {
           accept="image/png, image/jpeg"
           id={inputInfo.forProp}
           placeholder={inputInfo.text}
+          required
         ></input>
         <p>Image</p>
       </div>

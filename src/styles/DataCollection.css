@@ -144,6 +144,7 @@ form {
   font-size: 0.9rem;
   outline-style: none;
   border: none;
+  resize: none;
 }
 
 .add-delete-btn-container {

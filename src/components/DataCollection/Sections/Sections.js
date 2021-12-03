@@ -131,4 +131,48 @@ class ExperienceSection extends Component {
   }
 }
 
-export { PersonalInfoSection, ExperienceSection };
+class EducationSection extends Component {
+  render() {
+    return (
+      <div>
+        <TextInput
+          inputInfo={{
+            text: 'University Name',
+            forProp: 'uni-name',
+            key: uniqid(),
+          }}
+        />
+        <TextInput
+          inputInfo={{
+            text: 'City',
+            forProp: 'uni-city',
+            key: uniqid(),
+          }}
+        />
+        <TextInput
+          inputInfo={{
+            text: 'Degree',
+            forProp: 'degree',
+            key: uniqid(),
+          }}
+        />
+        <TextInput
+          inputInfo={{
+            text: 'From',
+            forProp: 'uni-start-date',
+            key: uniqid(),
+          }}
+        />
+        <TextInput
+          inputInfo={{
+            text: 'To',
+            forProp: 'uni-end-date',
+            key: uniqid(),
+          }}
+        />
+      </div>
+    );
+  }
+}
+
+export { PersonalInfoSection, ExperienceSection, EducationSection };

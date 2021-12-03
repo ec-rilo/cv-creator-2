@@ -130,6 +130,45 @@ class DataCollection extends Component {
             />
             <AddRemoveBtn />
           </div>
+          <div className="info-section">
+            <Category name="Education" />
+            <TextInput
+              inputInfo={{
+                text: 'University Name',
+                forProp: 'uni-name',
+                key: uniqid(),
+              }}
+            />
+            <TextInput
+              inputInfo={{
+                text: 'City',
+                forProp: 'uni-city',
+                key: uniqid(),
+              }}
+            />
+            <TextInput
+              inputInfo={{
+                text: 'Degree',
+                forProp: 'degree',
+                key: uniqid(),
+              }}
+            />
+            <TextInput
+              inputInfo={{
+                text: 'From',
+                forProp: 'uni-start-date',
+                key: uniqid(),
+              }}
+            />
+            <TextInput
+              inputInfo={{
+                text: 'To',
+                forProp: 'uni-end-date',
+                key: uniqid(),
+              }}
+            />
+            <AddRemoveBtn />
+          </div>
         </form>
       </div>
     );

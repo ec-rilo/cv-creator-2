@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import '../../styles/DataCollection.css';
 import Category from './Category';
-import TextInput from './TextInput';
-import TelInput from './TelInput';
-import ImgInput from './ImgInput';
-import EmailInput from './EmailInput';
-import DescriptionInput from './DescriptionInput';
+import {
+  TextInput,
+  ImgInput,
+  TelInput,
+  EmailInput,
+  DescriptionInput,
+} from './Inputs/MainInputs';
 import uniqid from 'uniqid';
 import AddRemoveBtn from './AddRemoveBtn';
 import ResetBtn from './ResetBtn';

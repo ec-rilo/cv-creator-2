@@ -9,8 +9,8 @@ import {
   DescriptionInput,
 } from './Inputs/MainInputs';
 import uniqid from 'uniqid';
-import AddRemoveBtn from './AddRemoveBtn';
-import ResetBtn from './ResetBtn';
+import AddRemoveBtn from './Buttons/AddRemoveBtn';
+import ResetBtn from './Buttons/ResetBtn';
 import Header from './Header/Header';
 
 class DataCollection extends Component {

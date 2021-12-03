@@ -12,7 +12,7 @@ import uniqid from 'uniqid';
 import AddRemoveBtn from './Buttons/AddRemoveBtn';
 import ResetBtn from './Buttons/ResetBtn';
 import Header from './Header/Header';
-import { PersonalInfoSection } from './Sections/Sections';
+import { PersonalInfoSection, ExperienceSection } from './Sections/Sections';
 
 class DataCollection extends Component {
   render() {
@@ -26,41 +26,7 @@ class DataCollection extends Component {
           </div>
           <div className="info-section">
             <Category name="Experience" />
-            <TextInput
-              inputInfo={{
-                text: 'Position',
-                forProp: 'position',
-                key: uniqid(),
-              }}
-            />
-            <TextInput
-              inputInfo={{
-                text: 'Company',
-                forProp: 'company',
-                key: uniqid(),
-              }}
-            />
-            <TextInput
-              inputInfo={{
-                text: 'location',
-                forProp: 'job-location',
-                key: uniqid(),
-              }}
-            />
-            <TextInput
-              inputInfo={{
-                text: 'From',
-                forProp: 'start-date',
-                key: uniqid(),
-              }}
-            />
-            <TextInput
-              inputInfo={{
-                text: 'To',
-                forProp: 'end-date',
-                key: uniqid(),
-              }}
-            />
+            <ExperienceSection />
             <AddRemoveBtn />
           </div>
           <div className="info-section">

@@ -12,6 +12,7 @@ import uniqid from 'uniqid';
 import AddRemoveBtn from './Buttons/AddRemoveBtn';
 import ResetBtn from './Buttons/ResetBtn';
 import Header from './Header/Header';
+import { PersonalInfoSection } from './Sections/Sections';
 
 class DataCollection extends Component {
   render() {
@@ -21,76 +22,7 @@ class DataCollection extends Component {
         <form action="#" method="#">
           <div className="info-section">
             <Category name="Personal Information" />
-            <TextInput
-              inputInfo={{
-                text: 'First Name',
-                forProp: 'first-name',
-                key: uniqid(),
-              }}
-            />
-            <TextInput
-              inputInfo={{
-                text: 'Last Name',
-                forProp: 'last-name',
-                key: uniqid(),
-              }}
-            />
-            <TextInput
-              inputInfo={{
-                text: 'Title',
-                forProp: 'title',
-                key: uniqid(),
-              }}
-            />
-            <ImgInput
-              inputInfo={{
-                text: 'Image',
-                forProp: 'image-file',
-                key: uniqid(),
-              }}
-            />
-            <TextInput
-              inputInfo={{
-                text: 'City',
-                forProp: 'city',
-                key: uniqid(),
-              }}
-            />
-            <TextInput
-              inputInfo={{
-                text: 'State',
-                forProp: 'state',
-                key: uniqid(),
-              }}
-            />
-            <TelInput
-              inputInfo={{
-                text: 'Phone number',
-                forProp: 'phone',
-                key: uniqid(),
-              }}
-            />
-            <EmailInput
-              inputInfo={{
-                text: 'Email',
-                forProp: 'email',
-                key: uniqid(),
-              }}
-            />
-            <TextInput
-              inputInfo={{
-                text: 'Linkedin link',
-                forProp: 'linkedin-link',
-                key: uniqid(),
-              }}
-            />
-            <DescriptionInput
-              inputInfo={{
-                text: 'Description',
-                forProp: 'description',
-                key: uniqid(),
-              }}
-            />
+            <PersonalInfoSection />
           </div>
           <div className="info-section">
             <Category name="Experience" />

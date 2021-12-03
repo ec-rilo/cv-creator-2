@@ -119,7 +119,7 @@ form {
 .img-input > p:nth-child(3) {
   position: absolute;
   top: 50%;
-  left: 25px;
+  left: 10px;
   transform: translate(0, -50%);
   font-size: 0.9rem;
   color: #777777;

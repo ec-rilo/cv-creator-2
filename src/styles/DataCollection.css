@@ -125,3 +125,48 @@ form {
   cursor: pointer;
   pointer-events: none;
 }
+
+.description-input-container {
+  margin: 25px 25px 0 25px;
+  padding: 5px 20px 5px 20px;
+  height: 70px;
+  background-color: var(--tertiary-clr);
+  border-radius: 10px;
+  font-family: var(--fnt-primary);
+}
+
+.description-input-container > textarea:nth-child(2) {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  font-family: var(--fnt-primary);
+  font-size: 0.9rem;
+  outline-style: none;
+  border: none;
+}
+
+.add-delete-btn-container {
+  display: flex;
+  flex-direction: column;
+  margin: 25px 25px 0 25px;
+  gap: 25px;
+}
+
+.add-delete-btn {
+  background-color: var(--secondary-clr);
+  color: var(--tertiary-clr);
+  border-radius: 5px;
+  height: 40px;
+  font-size: 1rem;
+  font-family: var(--fnt-primary-bld);
+  border: none;
+  cursor: pointer;
+}
+
+.add-delete-btn:hover {
+  background-color: #755b6c;
+}
+
+.add-delete-btn:active {
+  background-color: #624d5a;
+}

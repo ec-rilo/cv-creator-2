@@ -5,7 +5,9 @@ import TextInput from './TextInput';
 import TelInput from './TelInput';
 import ImgInput from './ImgInput';
 import EmailInput from './EmailInput';
+import DescriptionInput from './DescriptionInput';
 import uniqid from 'uniqid';
+import AddRemoveBtn from './AddRemoveBtn';
 
 class DataCollection extends Component {
   render() {
@@ -81,6 +83,52 @@ class DataCollection extends Component {
                 key: uniqid(),
               }}
             />
+            <DescriptionInput
+              inputInfo={{
+                text: 'Description',
+                forProp: 'description',
+                key: uniqid(),
+              }}
+            />
+          </div>
+          <div className="info-section">
+            <Category name="Experience" />
+            <TextInput
+              inputInfo={{
+                text: 'Position',
+                forProp: 'position',
+                key: uniqid(),
+              }}
+            />
+            <TextInput
+              inputInfo={{
+                text: 'Company',
+                forProp: 'company',
+                key: uniqid(),
+              }}
+            />
+            <TextInput
+              inputInfo={{
+                text: 'location',
+                forProp: 'job-location',
+                key: uniqid(),
+              }}
+            />
+            <TextInput
+              inputInfo={{
+                text: 'From',
+                forProp: 'start-date',
+                key: uniqid(),
+              }}
+            />
+            <TextInput
+              inputInfo={{
+                text: 'To',
+                forProp: 'end-date',
+                key: uniqid(),
+              }}
+            />
+            <AddRemoveBtn />
           </div>
         </form>
       </div>

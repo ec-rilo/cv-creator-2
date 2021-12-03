@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import '../../styles/DataCollection.css';
 import Category from './Category';
-import TextInput from './TextInput';
-import TelInput from './TelInput';
-import ImgInput from './ImgInput';
-import EmailInput from './EmailInput';
-import DescriptionInput from './DescriptionInput';
+import {
+  TextInput,
+  ImgInput,
+  TelInput,
+  EmailInput,
+  DescriptionInput,
+} from './Inputs/MainInputs';
 import uniqid from 'uniqid';
-import AddRemoveBtn from './AddRemoveBtn';
-import ResetBtn from './ResetBtn';
+import AddRemoveBtn from './Buttons/AddRemoveBtn';
+import ResetBtn from './Buttons/ResetBtn';
+import Header from './Header/Header';
 
 class DataCollection extends Component {
   render() {
     return (
       <div className="data-collection-container">
-        <header>
-          <h1>CV Creator</h1>
-          <p>Thank you for visiting! Please fill out the information below</p>
-        </header>
+        <Header />
         <form action="#" method="#">
           <div className="info-section">
             <Category name="Personal Information" />

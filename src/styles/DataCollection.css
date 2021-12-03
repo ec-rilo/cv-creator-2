@@ -19,6 +19,7 @@
   --primary-clr: #f8daea;
   --secondary-clr: #8b687f;
   --tertiary-clr: #fff;
+  --high-priority-clr: #fe5f55;
 
   /* Fonts */
   --fnt-primary: 'Roboto-Regular';
@@ -70,7 +71,7 @@ header > p:nth-child(2) {
 
 .default-input-container {
   margin: 25px 25px 0 25px;
-  padding: 0 20px 0 20px;
+  padding: 0 10px 0 10px;
   height: 35px;
   background-color: var(--tertiary-clr);
   border-radius: 10px;
@@ -94,7 +95,7 @@ header > p:nth-child(2) {
 form {
   display: flex;
   flex-direction: column;
-  margin: 50px auto;
+  padding: 50px 0 50px 0;
   gap: 50px;
 }
 
@@ -118,7 +119,7 @@ form {
 .img-input > p:nth-child(3) {
   position: absolute;
   top: 50%;
-  left: 25px;
+  left: 10px;
   transform: translate(0, -50%);
   font-size: 0.9rem;
   color: #777777;
@@ -128,7 +129,7 @@ form {
 
 .description-input-container {
   margin: 25px 25px 0 25px;
-  padding: 5px 20px 5px 20px;
+  padding: 5px 10px 5px 10px;
   height: 70px;
   background-color: var(--tertiary-clr);
   border-radius: 10px;
@@ -143,6 +144,7 @@ form {
   font-size: 0.9rem;
   outline-style: none;
   border: none;
+  resize: none;
 }
 
 .add-delete-btn-container {
@@ -169,4 +171,30 @@ form {
 
 .add-delete-btn:active {
   background-color: #624d5a;
+}
+
+.reset-btn-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 25px 0 25px;
+  gap: 25px;
+}
+
+.reset-btn {
+  background-color: var(--high-priority-clr);
+  color: var(--tertiary-clr);
+  border-radius: 5px;
+  height: 40px;
+  font-size: 1rem;
+  font-family: var(--fnt-primary-bld);
+  border: none;
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  background-color: #e05f55;
+}
+
+.reset-btn:active {
+  background-color: #c65f55;
 }

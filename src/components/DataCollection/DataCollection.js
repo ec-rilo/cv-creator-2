@@ -7,6 +7,7 @@ import ImgInput from './ImgInput';
 import EmailInput from './EmailInput';
 import DescriptionInput from './DescriptionInput';
 import uniqid from 'uniqid';
+import AddRemoveBtn from './AddRemoveBtn';
 
 class DataCollection extends Component {
   render() {
@@ -127,6 +128,7 @@ class DataCollection extends Component {
                 key: uniqid(),
               }}
             />
+            <AddRemoveBtn />
           </div>
         </form>
       </div>

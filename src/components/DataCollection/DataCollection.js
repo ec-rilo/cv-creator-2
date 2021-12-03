@@ -19,7 +19,16 @@ import {
 } from './Sections/Sections';
 
 class DataCollection extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      experienceSections: [<ExperienceSection key={uniqid()} />],
+    };
+  }
+
   render() {
+    const { experienceSections } = this.state;
     return (
       <div className="data-collection-container">
         <Header />
@@ -30,7 +39,9 @@ class DataCollection extends Component {
           </div>
           <div className="info-section">
             <Category name="Experience" />
-            <ExperienceSection />
+            {experienceSections.map((section) => {
+              return section;
+            })}
             <AddRemoveBtn />
           </div>
           <div className="info-section">

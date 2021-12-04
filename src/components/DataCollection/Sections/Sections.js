@@ -90,6 +90,7 @@ class PersonalInfoSection extends Component {
 
 class ExperienceSection extends Component {
   render() {
+    const { sectionCreation } = this.props;
     return (
       <div>
         <TextInput
@@ -127,7 +128,7 @@ class ExperienceSection extends Component {
             key: uniqid(),
           }}
         />
-        <AddRemoveBtn section="experience" createSection={this.createSection} />
+        <AddRemoveBtn section="experience" createSection={sectionCreation} />
       </div>
     );
   }

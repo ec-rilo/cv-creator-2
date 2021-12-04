@@ -61,22 +61,6 @@ class DataCollection extends Component {
               return section;
             })}
           </div>
-          <div className="info-section">
-            <Category name="Education" />
-            <EducationSection />
-            <AddRemoveBtn />
-          </div>
-          <div className="info-section">
-            <Category name="Skills" />
-            <TextInput
-              inputInfo={{
-                text: 'Skill',
-                forProp: 'skill-name',
-                key: uniqid(),
-              }}
-            />
-            <AddRemoveBtn />
-          </div>
           <ResetBtn />
         </form>
       </div>

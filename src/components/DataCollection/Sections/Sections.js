@@ -6,7 +6,7 @@ import {
   EmailInput,
   DescriptionInput,
 } from '../Inputs/MainInputs';
-import AddRemoveBtn from '../Buttons/AddRemoveBtn';
+import { AddRemoveBtn, DeleteBtn } from '../Buttons/AddRemoveBtn';
 import uniqid from 'uniqid';
 
 class PersonalInfoSection extends Component {
@@ -89,8 +89,32 @@ class PersonalInfoSection extends Component {
 }
 
 class ExperienceSection extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      addRmvBtn: [
+        <AddRemoveBtn
+          section="experience"
+          createSection={this.props.sectionCreation}
+          updateBtn={this.updateBtn}
+          key={uniqid()}
+        />,
+      ],
+    };
+
+    this.updateBtn = this.updateBtn.bind(this);
+  }
+
+  updateBtn = () => {
+    this.setState({
+      addRmvBtn: [<DeleteBtn key={uniqid()} />],
+    });
+  };
+
   render() {
     const { sectionCreation } = this.props;
+    const { addRmvBtn } = this.state;
     return (
       <div>
         <TextInput
@@ -128,7 +152,9 @@ class ExperienceSection extends Component {
             key: uniqid(),
           }}
         />
-        <AddRemoveBtn section="experience" createSection={sectionCreation} />
+        {addRmvBtn.map((elem) => {
+          return elem;
+        })}
       </div>
     );
   }

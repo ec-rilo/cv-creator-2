@@ -55,10 +55,6 @@ class DataCollection extends Component {
             {experienceSections.map((section) => {
               return section;
             })}
-            <AddRemoveBtn
-              section="experience"
-              createSection={this.createSection}
-            />
           </div>
           <div className="info-section">
             <Category name="Education" />

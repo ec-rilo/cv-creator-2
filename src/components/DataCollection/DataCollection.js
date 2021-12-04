@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../../styles/DataCollection.css';
 import Category from './Category';
-import { TextInput } from './Inputs/MainInputs';
 import uniqid from 'uniqid';
 import ResetBtn from './Buttons/ResetBtn';
 import Header from './Header/Header';

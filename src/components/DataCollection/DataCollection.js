@@ -9,7 +9,7 @@ import {
   DescriptionInput,
 } from './Inputs/MainInputs';
 import uniqid from 'uniqid';
-import AddRemoveBtn from './Buttons/AddRemoveBtn';
+import { AddRemoveBtn } from './Buttons/AddRemoveBtn';
 import ResetBtn from './Buttons/ResetBtn';
 import Header from './Header/Header';
 import {
@@ -35,7 +35,13 @@ class DataCollection extends Component {
   createSection = (name) => {
     switch (name) {
       case 'experience':
-        const section = <ExperienceSection key={uniqid()} />;
+        const section = (
+          <ExperienceSection
+            key={uniqid()}
+            sectionCreation={this.createSection}
+          />
+        );
+
         this.setState({
           experienceSections: this.state.experienceSections.concat(section),
         });

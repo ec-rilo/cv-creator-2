@@ -23,7 +23,12 @@ class DataCollection extends Component {
     super(props);
 
     this.state = {
-      experienceSections: [<ExperienceSection key={uniqid()} />],
+      experienceSections: [
+        <ExperienceSection
+          key={uniqid()}
+          sectionCreation={this.createSection}
+        />,
+      ],
     };
   }
 

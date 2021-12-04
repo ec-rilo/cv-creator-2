@@ -4,11 +4,7 @@ import Category from './Category';
 import uniqid from 'uniqid';
 import ResetBtn from './Buttons/ResetBtn';
 import Header from './Header/Header';
-import {
-  PersonalInfoSection,
-  ExperienceSection,
-  EducationSection,
-} from './Sections/Sections';
+import { PersonalInfoSection, ExperienceSection } from './Sections/Sections';
 
 class DataCollection extends Component {
   constructor(props) {

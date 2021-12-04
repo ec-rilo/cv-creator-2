@@ -27,6 +27,19 @@ class DataCollection extends Component {
     };
   }
 
+  createSection = (name) => {
+    switch (name) {
+      case 'experience':
+        const section = <ExperienceSection key={uniqid()} />;
+        this.setState({
+          experienceSections: this.state.experienceSections.concat(section),
+        });
+        break;
+      default:
+        break;
+    }
+  };
+
   render() {
     const { experienceSections } = this.state;
     return (
@@ -42,7 +55,10 @@ class DataCollection extends Component {
             {experienceSections.map((section) => {
               return section;
             })}
-            <AddRemoveBtn />
+            <AddRemoveBtn
+              section="experience"
+              createSection={this.createSection}
+            />
           </div>
           <div className="info-section">
             <Category name="Education" />

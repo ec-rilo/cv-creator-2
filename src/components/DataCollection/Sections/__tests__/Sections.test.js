@@ -8,4 +8,10 @@ describe('Personal Information Section', () => {
     const inputElems = screen.getAllByRole('textbox');
     expect(inputElems.length).toBe(9);
   });
+
+  test('renders 1 img input on default load', () => {
+    render(<PersonalInfoSection />);
+    const inputElems = screen.getAllByText('Image');
+    expect(inputElems.length).toBe(1);
+  });
 });

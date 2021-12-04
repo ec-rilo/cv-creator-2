@@ -6,6 +6,7 @@ import {
   EmailInput,
   DescriptionInput,
 } from '../Inputs/MainInputs';
+import AddRemoveBtn from '../Buttons/AddRemoveBtn';
 import uniqid from 'uniqid';
 
 class PersonalInfoSection extends Component {
@@ -126,6 +127,7 @@ class ExperienceSection extends Component {
             key: uniqid(),
           }}
         />
+        <AddRemoveBtn section="experience" createSection={this.createSection} />
       </div>
     );
   }

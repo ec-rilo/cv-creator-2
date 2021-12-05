@@ -12,31 +12,33 @@ class DataCollection extends Component {
 
     this.state = {
       experienceSections: [
-        <ExperienceSection
-          key={uniqid()}
-          sectionCreation={this.createSection}
-        />,
+        { key: uniqid(), sectionCreation: this.createSection },
       ],
+      section: {
+        key: uniqid(),
+        sectionCreation: this.createSection,
+      },
     };
+    this.createSection = this.createSection.bind(this);
   }
 
   createSection = (name) => {
+    console.log(name);
     switch (name) {
       case 'experience':
-        const section = (
-          <ExperienceSection
-            key={uniqid()}
-            sectionCreation={this.createSection}
-          />
-        );
-
         this.setState({
-          experienceSections: this.state.experienceSections.concat(section),
+          experienceSections: this.state.experienceSections.concat(
+            this.state.section
+          ),
         });
         break;
       default:
         break;
     }
+
+    this.setState({
+      section: { key: uniqid(), sectionCreation: this.createSection },
+    });
   };
 
   render() {
@@ -52,7 +54,12 @@ class DataCollection extends Component {
           <div className="info-section">
             <Category name="Experience" />
             {experienceSections.map((section) => {
-              return section;
+              return (
+                <ExperienceSection
+                  key={section.key}
+                  sectionCreation={this.createSection}
+                />
+              );
             })}
           </div>
           <ResetBtn />

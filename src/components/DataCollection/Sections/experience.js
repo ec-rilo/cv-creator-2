@@ -61,7 +61,6 @@ class Experience extends Component {
   };
 
   removeSection = (sectionId) => {
-    console.log(sectionId);
     this.setState({
       experienceSections: this.state.experienceSections
         .filter((section) => section.sectionKey !== sectionId)

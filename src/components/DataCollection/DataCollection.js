@@ -23,7 +23,6 @@ class DataCollection extends Component {
   }
 
   createSection = (name) => {
-    console.log(name);
     switch (name) {
       case 'experience':
         this.setState({

@@ -7,17 +7,19 @@ class Experience extends Component {
   constructor(props) {
     super(props);
 
+    const key1 = uniqid();
+    const key2 = uniqid();
     this.state = {
       experienceSections: [
         {
-          key: uniqid(),
-          sectionKey: this.key,
+          key: key1,
+          sectionKey: key1,
           isMainSection: true,
         },
       ],
       section: {
-        key: uniqid(),
-        sectionKey: this.key,
+        key: key2,
+        sectionKey: key2,
         isMainSection: true,
       },
     };

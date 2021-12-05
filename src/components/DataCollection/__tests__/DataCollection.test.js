@@ -46,7 +46,7 @@ describe('Experience Section', () => {
     addSections(4);
     const sections = screen.getAllByTitle('This is an Experience Section');
     const lastSection = sections.slice(-1)[0];
-    const btnsContainer = lastSection.firstChild.children;
+    const btnsContainer = lastSection.lastChild.children;
     expect(btnsContainer.length).toBe(2);
   });
 

@@ -113,7 +113,6 @@ class ExperienceSection extends Component {
   };
 
   render() {
-    const { sectionCreation } = this.props;
     const { addRmvBtn } = this.state;
     return (
       <div>

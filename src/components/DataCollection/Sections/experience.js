@@ -25,6 +25,7 @@ class Experience extends Component {
     };
 
     this.createSection = this.createSection.bind(this);
+    this.removeSection = this.removeSection.bind(this);
   }
 
   createSection = (name) => {
@@ -58,6 +59,15 @@ class Experience extends Component {
     });
   };
 
+  removeSection = (sectionId) => {
+    console.log(sectionId);
+    this.setState({
+      experienceSections: this.state.experienceSections.filter(
+        (section) => section.sectionKey !== sectionId
+      ),
+    });
+  };
+
   render() {
     const { experienceSections } = this.state;
     return (
@@ -66,8 +76,10 @@ class Experience extends Component {
           return (
             <ExperienceSection
               key={section.key}
+              sectionKey={section.sectionKey}
               isMainSection={section.isMainSection}
               sectionCreation={this.createSection}
+              removeSection={this.removeSection}
             />
           );
         })}

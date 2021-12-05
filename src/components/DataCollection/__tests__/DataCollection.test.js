@@ -40,4 +40,13 @@ describe('Experience Section', () => {
     const deleteBtn = btns.find((btn) => btn.innerHTML === 'Delete');
     expect(deleteBtn).toBeInTheDocument();
   });
+
+  test('when multiple sections are rendered, only the last section has an "Add" and "Delete" button', () => {
+    render(<DataCollection />);
+    addSections(4);
+    const sections = screen.getAllByTitle('This is an Experience Section');
+    const lastSection = sections.slice(-1)[0];
+    const btnsContainer = lastSection.firstChild.children;
+    expect(btnsContainer.length).toBe(2);
+  });
 });

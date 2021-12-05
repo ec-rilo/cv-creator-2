@@ -89,31 +89,20 @@ class PersonalInfoSection extends Component {
 }
 
 class ExperienceSection extends Component {
-  constructor(props) {
-    super(props);
+  render() {
+    const { isMainSection, sectionCreation } = this.props;
 
-    this.state = {
-      addRmvBtn: [
+    let btn;
+    if (isMainSection === true) {
+      btn = (
         <AddRemoveBtn
           section="experience"
-          createSection={this.props.sectionCreation}
-          updateBtn={this.updateBtn}
-          key={uniqid()}
-        />,
-      ],
-    };
+          isMainSection={isMainSection}
+          createSection={sectionCreation}
+        />
+      );
+    } else btn = <DeleteBtn />;
 
-    this.updateBtn = this.updateBtn.bind(this);
-  }
-
-  updateBtn = () => {
-    this.setState({
-      addRmvBtn: [<DeleteBtn key={uniqid()} />],
-    });
-  };
-
-  render() {
-    const { addRmvBtn } = this.state;
     return (
       <div title="This is an Experience Section">
         <TextInput
@@ -151,9 +140,7 @@ class ExperienceSection extends Component {
             key: uniqid(),
           }}
         />
-        {addRmvBtn.map((elem) => {
-          return elem;
-        })}
+        {btn}
       </div>
     );
   }

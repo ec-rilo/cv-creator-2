@@ -115,7 +115,7 @@ class ExperienceSection extends Component {
   render() {
     const { addRmvBtn } = this.state;
     return (
-      <div>
+      <div title="This is an Experience Section">
         <TextInput
           inputInfo={{
             text: 'Position',

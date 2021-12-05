@@ -90,18 +90,22 @@ class PersonalInfoSection extends Component {
 
 class ExperienceSection extends Component {
   render() {
-    const { isMainSection, sectionCreation } = this.props;
+    const { isMainSection, sectionCreation, removeSection, sectionKey } =
+      this.props;
 
     let btn;
     if (isMainSection === true) {
       btn = (
         <AddRemoveBtn
           section="experience"
+          sectionKey={sectionKey}
           isMainSection={isMainSection}
           createSection={sectionCreation}
+          removeSection={removeSection}
         />
       );
-    } else btn = <DeleteBtn />;
+    } else
+      btn = <DeleteBtn removeSection={removeSection} sectionKey={sectionKey} />;
 
     return (
       <div title="This is an Experience Section">

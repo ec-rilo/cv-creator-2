@@ -12,11 +12,12 @@ class DataCollection extends Component {
 
     this.state = {
       experienceSections: [
-        <ExperienceSection
-          key={uniqid()}
-          sectionCreation={this.createSection}
-        />,
+        { key: uniqid(), sectionCreation: this.createSection },
       ],
+      section: {
+        key: uniqid(),
+        sectionCreation: this.createSection,
+      },
     };
   }
 
@@ -52,7 +53,12 @@ class DataCollection extends Component {
           <div className="info-section">
             <Category name="Experience" />
             {experienceSections.map((section) => {
-              return section;
+              return (
+                <ExperienceSection
+                  key={section.key}
+                  createSection={section.sectionCreation}
+                />
+              );
             })}
           </div>
           <ResetBtn />

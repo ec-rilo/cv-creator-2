@@ -19,25 +19,26 @@ class DataCollection extends Component {
         sectionCreation: this.createSection,
       },
     };
+    this.createSection = this.createSection.bind(this);
   }
 
   createSection = (name) => {
+    console.log(name);
     switch (name) {
       case 'experience':
-        const section = (
-          <ExperienceSection
-            key={uniqid()}
-            sectionCreation={this.createSection}
-          />
-        );
-
         this.setState({
-          experienceSections: this.state.experienceSections.concat(section),
+          experienceSections: this.state.experienceSections.concat(
+            this.state.section
+          ),
         });
         break;
       default:
         break;
     }
+
+    this.setState({
+      section: { key: uniqid(), sectionCreation: this.createSection },
+    });
   };
 
   render() {
@@ -56,7 +57,7 @@ class DataCollection extends Component {
               return (
                 <ExperienceSection
                   key={section.key}
-                  createSection={section.sectionCreation}
+                  sectionCreation={this.createSection}
                 />
               );
             })}

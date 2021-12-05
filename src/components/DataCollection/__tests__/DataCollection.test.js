@@ -26,4 +26,18 @@ describe('Experience Section', () => {
     const sections = screen.getAllByTitle('This is an Experience Section');
     expect(sections.length).toBe(4);
   });
+
+  test('renders "Add" btn on default load', () => {
+    render(<DataCollection />);
+    const btns = screen.getAllByRole('button');
+    const addBtn = btns.find((btn) => btn.innerHTML === 'Add');
+    expect(addBtn).toBeInTheDocument();
+  });
+
+  test('renders "Delete" btn on default load', () => {
+    render(<DataCollection />);
+    const btns = screen.getAllByRole('button');
+    const deleteBtn = btns.find((btn) => btn.innerHTML === 'Delete');
+    expect(deleteBtn).toBeInTheDocument();
+  });
 });

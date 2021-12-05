@@ -16,14 +16,12 @@ class DataCollection extends Component {
           key: uniqid(),
           sectionKey: this.key,
           isMainSection: true,
-          sectionCreation: this.createSection,
         },
       ],
       section: {
         key: uniqid(),
         sectionKey: this.key,
         isMainSection: true,
-        sectionCreation: this.createSection,
       },
     };
     this.createSection = this.createSection.bind(this);
@@ -55,7 +53,6 @@ class DataCollection extends Component {
         key: uniqid(),
         sectionKey: this.key,
         isMainSection: true,
-        sectionCreation: this.createSection,
       },
     });
   };

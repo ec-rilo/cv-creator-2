@@ -66,4 +66,20 @@ describe('Experience Section', () => {
     fireEvent.click(deleteBtn);
     expect(defaultSection).not.toBeInTheDocument();
   });
+
+  test('Only "AddBtn" appears when there are no sections', () => {
+    render(<DataCollection />);
+    const experienceContainer = screen.getByTitle(
+      'This is a section of experiences'
+    );
+    const defaultSection = screen.getByTitle('This is an Experience Section');
+    const deleteBtn = defaultSection.lastChild.firstChild;
+    fireEvent.click(deleteBtn);
+    const btnContainer = experienceContainer.firstChild.nextSibling;
+    const numOfBtns = btnContainer.children.length;
+    const addBtn = btnContainer.firstChild.firstChild;
+
+    expect(addBtn.innerHTML).toBe('Add');
+    expect(numOfBtns).toBe(1);
+  });
 });

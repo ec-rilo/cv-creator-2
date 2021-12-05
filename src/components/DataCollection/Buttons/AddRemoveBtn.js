@@ -28,7 +28,7 @@ class AddRemoveBtn extends Component {
 
 class DeleteBtn extends Component {
   render() {
-    const { section, createSection, removeSection, sectionKey } = this.props;
+    const { removeSection, sectionKey } = this.props;
     return (
       <div className="add-delete-btn-container">
         <button

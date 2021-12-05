@@ -15,12 +15,14 @@ class DataCollection extends Component {
         {
           key: uniqid(),
           sectionKey: this.key,
+          isMainSection: true,
           sectionCreation: this.createSection,
         },
       ],
       section: {
         key: uniqid(),
         sectionKey: this.key,
+        isMainSection: true,
         sectionCreation: this.createSection,
       },
     };
@@ -31,9 +33,17 @@ class DataCollection extends Component {
     switch (name) {
       case 'experience':
         this.setState({
-          experienceSections: this.state.experienceSections.concat(
-            this.state.section
-          ),
+          experienceSections: this.state.experienceSections
+            .concat(this.state.section)
+            .map((section, index, array) => {
+              if (index === array.length - 1) {
+                section.isMainSection = true;
+                return section;
+              } else {
+                section.isMainSection = false;
+                return section;
+              }
+            }),
         });
         break;
       default:
@@ -44,6 +54,7 @@ class DataCollection extends Component {
       section: {
         key: uniqid(),
         sectionKey: this.key,
+        isMainSection: true,
         sectionCreation: this.createSection,
       },
     });
@@ -65,6 +76,7 @@ class DataCollection extends Component {
               return (
                 <ExperienceSection
                   key={section.key}
+                  isMainSection={section.isMainSection}
                   sectionCreation={this.createSection}
                 />
               );

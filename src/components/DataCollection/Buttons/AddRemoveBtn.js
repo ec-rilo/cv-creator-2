@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class AddRemoveBtn extends Component {
   render() {
-    const { section, createSection, updateBtn } = this.props;
+    const { section, createSection } = this.props;
     return (
       <div className="add-delete-btn-container">
         <button className="add-delete-btn" type="button">
@@ -11,7 +11,6 @@ class AddRemoveBtn extends Component {
         <button
           onClick={() => {
             createSection(section);
-            updateBtn();
           }}
           className="add-delete-btn"
           type="button"

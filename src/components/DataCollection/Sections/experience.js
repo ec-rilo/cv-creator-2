@@ -48,10 +48,11 @@ class Experience extends Component {
         break;
     }
 
+    const newKey = uniqid();
     this.setState({
       section: {
-        key: uniqid(),
-        sectionKey: this.key,
+        key: newKey,
+        sectionKey: newKey,
         isMainSection: true,
       },
     });

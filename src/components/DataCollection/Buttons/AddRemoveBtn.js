@@ -43,4 +43,23 @@ class DeleteBtn extends Component {
   }
 }
 
-export { AddRemoveBtn, DeleteBtn };
+class AddBtn extends Component {
+  render() {
+    const { section, createSection } = this.props;
+    return (
+      <div className="add-delete-btn-container">
+        <button
+          onClick={() => {
+            createSection(section);
+          }}
+          className="add-delete-btn"
+          type="button"
+        >
+          Add
+        </button>
+      </div>
+    );
+  }
+}
+
+export { AddRemoveBtn, DeleteBtn, AddBtn };

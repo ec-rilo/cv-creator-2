@@ -16,7 +16,10 @@ class DataCollection extends Component {
             <Category name="Personal Information" />
             <PersonalInfoSection />
           </div>
-          <div className="info-section">
+          <div
+            className="info-section"
+            title="This is a section of experiences"
+          >
             <Category name="Experience" />
             <Experience createSection={this.createSection} />
           </div>

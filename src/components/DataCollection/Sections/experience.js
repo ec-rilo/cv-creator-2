@@ -1,6 +1,7 @@
 // This will provide a container that will hold and dynamically grow sections of experience.
 import React, { Component } from 'react';
 import { ExperienceSection } from './Sections';
+import { AddBtn } from '../Buttons/AddRemoveBtn';
 import uniqid from 'uniqid';
 
 class Experience extends Component {
@@ -70,21 +71,33 @@ class Experience extends Component {
 
   render() {
     const { experienceSections } = this.state;
-    return (
-      <div>
-        {experienceSections.map((section) => {
-          return (
-            <ExperienceSection
-              key={section.key}
-              sectionKey={section.sectionKey}
-              isMainSection={section.isMainSection}
-              sectionCreation={this.createSection}
-              removeSection={this.removeSection}
-            />
-          );
-        })}
-      </div>
-    );
+    if (this.state.experienceSections.length === 0) {
+      return (
+        <div>
+          <AddBtn
+            section="experience"
+            sectionKey={uniqid()}
+            createSection={this.createSection}
+          />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          {experienceSections.map((section) => {
+            return (
+              <ExperienceSection
+                key={section.key}
+                sectionKey={section.sectionKey}
+                isMainSection={section.isMainSection}
+                sectionCreation={this.createSection}
+                removeSection={this.removeSection}
+              />
+            );
+          })}
+        </div>
+      );
+    }
   }
 }
 

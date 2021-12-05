@@ -12,10 +12,15 @@ class DataCollection extends Component {
 
     this.state = {
       experienceSections: [
-        { key: uniqid(), sectionCreation: this.createSection },
+        {
+          key: uniqid(),
+          sectionKey: this.key,
+          sectionCreation: this.createSection,
+        },
       ],
       section: {
         key: uniqid(),
+        sectionKey: this.key,
         sectionCreation: this.createSection,
       },
     };
@@ -36,7 +41,11 @@ class DataCollection extends Component {
     }
 
     this.setState({
-      section: { key: uniqid(), sectionCreation: this.createSection },
+      section: {
+        key: uniqid(),
+        sectionKey: this.key,
+        sectionCreation: this.createSection,
+      },
     });
   };
 

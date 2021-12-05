@@ -58,4 +58,12 @@ describe('Experience Section', () => {
       expect(sections[i].lastChild.children.length).toBe(1);
     }
   });
+
+  test('"Delete" button can delete the default experience section', () => {
+    render(<DataCollection />);
+    const defaultSection = screen.getByTitle('This is an Experience Section');
+    const deleteBtn = defaultSection.lastChild.firstChild;
+    fireEvent.click(deleteBtn);
+    expect(defaultSection).not.toBeInTheDocument();
+  });
 });

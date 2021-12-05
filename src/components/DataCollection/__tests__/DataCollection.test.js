@@ -49,4 +49,13 @@ describe('Experience Section', () => {
     const btnsContainer = lastSection.firstChild.children;
     expect(btnsContainer.length).toBe(2);
   });
+
+  test('when multiple sections are rendered, all but the last section will only have the "Delete" button', () => {
+    render(<DataCollection />);
+    addSections(4);
+    const sections = screen.getAllByTitle('This is an Experience Section');
+    for (let i = 0; i < sections.length - 1; ++i) {
+      expect(sections[i].lastChild.children.length).toBe(1);
+    }
+  });
 });

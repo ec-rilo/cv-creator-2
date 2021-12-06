@@ -203,4 +203,42 @@ class EducationSection extends Component {
   }
 }
 
-export { PersonalInfoSection, ExperienceSection, EducationSection };
+class SkillSection extends Component {
+  render() {
+    const { isMainSection, createSection, removeSection, sectionKey } =
+      this.props;
+
+    let btn;
+    if (isMainSection === true) {
+      btn = (
+        <AddRemoveBtn
+          sectionKey={sectionKey}
+          isMainSection={isMainSection}
+          createSection={createSection}
+          removeSection={removeSection}
+        />
+      );
+    } else
+      btn = <DeleteBtn removeSection={removeSection} sectionKey={sectionKey} />;
+
+    return (
+      <div title="This is a Skills Section">
+        <TextInput
+          inputInfo={{
+            text: 'Skill',
+            forProp: 'skill-name',
+            key: uniqid(),
+          }}
+        />
+        {btn}
+      </div>
+    );
+  }
+}
+
+export {
+  PersonalInfoSection,
+  ExperienceSection,
+  EducationSection,
+  SkillSection,
+};

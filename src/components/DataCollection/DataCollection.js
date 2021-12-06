@@ -6,6 +6,7 @@ import Header from './Header/Header';
 import { PersonalInfoSection } from './Sections/Sections';
 import Experience from './Sections/experience';
 import Education from './Sections/Education';
+import Skill from './Sections/Skill';
 
 class DataCollection extends Component {
   render() {
@@ -27,6 +28,10 @@ class DataCollection extends Component {
           <div className="info-section" title="This is a section of education">
             <Category name="Education" />
             <Education />
+          </div>
+          <div className="info-section" title="This is a section of skills">
+            <Category name="Skills" />
+            <Skill />
           </div>
           <ResetBtn />
         </form>

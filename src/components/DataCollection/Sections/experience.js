@@ -1,4 +1,3 @@
-// This will provide a container that will hold and dynamically grow sections of experience.
 import React, { Component } from 'react';
 import { ExperienceSection } from './Sections';
 import { AddBtn } from '../Buttons/AddRemoveBtn';

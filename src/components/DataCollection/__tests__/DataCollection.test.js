@@ -83,4 +83,14 @@ describe('Experience Section', () => {
     expect(addBtn.innerHTML).toBe('Add');
     expect(numOfBtns).toBe(1);
   });
+
+  test('"Delete" button deletes specific sections', () => {
+    render(<Experience />);
+    addSections(4);
+    const sections = screen.getAllByTitle('This is an Experience Section');
+    const thirdSection = sections[2];
+    const deleteBtn = thirdSection.lastChild.children[0];
+    fireEvent.click(deleteBtn);
+    expect(thirdSection).not.toBeInTheDocument();
+  });
 });

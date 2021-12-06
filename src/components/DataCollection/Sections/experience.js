@@ -87,7 +87,7 @@ class Experience extends Component {
                 key={section.key}
                 sectionKey={section.sectionKey}
                 isMainSection={section.isMainSection}
-                sectionCreation={this.createSection}
+                createSection={this.createSection}
                 removeSection={this.removeSection}
               />
             );

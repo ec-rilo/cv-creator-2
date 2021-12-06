@@ -29,26 +29,20 @@ class Experience extends Component {
     this.removeSection = this.removeSection.bind(this);
   }
 
-  createSection = (name) => {
-    switch (name) {
-      case 'experience':
-        this.setState({
-          experienceSections: this.state.experienceSections
-            .concat(this.state.section)
-            .map((section, index, array) => {
-              if (index === array.length - 1) {
-                section.isMainSection = true;
-                return section;
-              } else {
-                section.isMainSection = false;
-                return section;
-              }
-            }),
-        });
-        break;
-      default:
-        break;
-    }
+  createSection = () => {
+    this.setState({
+      experienceSections: this.state.experienceSections
+        .concat(this.state.section)
+        .map((section, index, array) => {
+          if (index === array.length - 1) {
+            section.isMainSection = true;
+            return section;
+          } else {
+            section.isMainSection = false;
+            return section;
+          }
+        }),
+    });
 
     const newKey = uniqid();
     this.setState({

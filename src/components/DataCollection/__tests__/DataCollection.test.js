@@ -22,28 +22,28 @@ describe('Experience Section', () => {
   });
 
   test('renders multiple(3) new sections when "add" button is clicked', () => {
-    render(<DataCollection />);
+    render(<Experience />);
     addSections(3);
     const sections = screen.getAllByTitle('This is an Experience Section');
     expect(sections.length).toBe(4);
   });
 
   test('renders "Add" btn on default load', () => {
-    render(<DataCollection />);
+    render(<Experience />);
     const btns = screen.getAllByRole('button');
     const addBtn = btns.find((btn) => btn.innerHTML === 'Add');
     expect(addBtn).toBeInTheDocument();
   });
 
   test('renders "Delete" btn on default load', () => {
-    render(<DataCollection />);
+    render(<Experience />);
     const btns = screen.getAllByRole('button');
     const deleteBtn = btns.find((btn) => btn.innerHTML === 'Delete');
     expect(deleteBtn).toBeInTheDocument();
   });
 
   test('when multiple sections are rendered, only the last section has an "Add" and "Delete" button', () => {
-    render(<DataCollection />);
+    render(<Experience />);
     addSections(4);
     const sections = screen.getAllByTitle('This is an Experience Section');
     const lastSection = sections.slice(-1)[0];
@@ -52,7 +52,7 @@ describe('Experience Section', () => {
   });
 
   test('when multiple sections are rendered, all but the last section will only have the "Delete" button', () => {
-    render(<DataCollection />);
+    render(<Experience />);
     addSections(4);
     const sections = screen.getAllByTitle('This is an Experience Section');
     for (let i = 0; i < sections.length - 1; ++i) {
@@ -61,7 +61,7 @@ describe('Experience Section', () => {
   });
 
   test('"Delete" button can delete the default experience section', () => {
-    render(<DataCollection />);
+    render(<Experience />);
     const defaultSection = screen.getByTitle('This is an Experience Section');
     const deleteBtn = defaultSection.lastChild.firstChild;
     fireEvent.click(deleteBtn);

@@ -151,19 +151,28 @@ class ExperienceSection extends Component {
 
 class EducationSection extends Component {
   render() {
+    const { isMainSection, createSection, removeSection, sectionKey } =
+      this.props;
+
+    let btn;
+    if (isMainSection === true) {
+      btn = (
+        <AddRemoveBtn
+          sectionKey={sectionKey}
+          isMainSection={isMainSection}
+          createSection={createSection}
+          removeSection={removeSection}
+        />
+      );
+    } else
+      btn = <DeleteBtn removeSection={removeSection} sectionKey={sectionKey} />;
+
     return (
-      <div>
+      <div title="This is an Education Section">
         <TextInput
           inputInfo={{
             text: 'University Name',
             forProp: 'uni-name',
-            key: uniqid(),
-          }}
-        />
-        <TextInput
-          inputInfo={{
-            text: 'City',
-            forProp: 'uni-city',
             key: uniqid(),
           }}
         />
@@ -188,6 +197,7 @@ class EducationSection extends Component {
             key: uniqid(),
           }}
         />
+        {btn}
       </div>
     );
   }

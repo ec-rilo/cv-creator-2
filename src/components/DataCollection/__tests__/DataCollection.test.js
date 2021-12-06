@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import DataCollection from '../DataCollection';
+import Experience from '../Sections/experience';
 
 describe('Experience Section', () => {
   const addSections = (numOfSections) => {
@@ -12,7 +13,7 @@ describe('Experience Section', () => {
   };
 
   test('can render 1 new section when "add" button is clicked', () => {
-    render(<DataCollection />);
+    render(<Experience />);
     const btns = screen.getAllByRole('button');
     const addBtn = btns.find((btn) => btn.innerHTML === 'Add');
     fireEvent.click(addBtn);
@@ -21,28 +22,28 @@ describe('Experience Section', () => {
   });
 
   test('renders multiple(3) new sections when "add" button is clicked', () => {
-    render(<DataCollection />);
+    render(<Experience />);
     addSections(3);
     const sections = screen.getAllByTitle('This is an Experience Section');
     expect(sections.length).toBe(4);
   });
 
   test('renders "Add" btn on default load', () => {
-    render(<DataCollection />);
+    render(<Experience />);
     const btns = screen.getAllByRole('button');
     const addBtn = btns.find((btn) => btn.innerHTML === 'Add');
     expect(addBtn).toBeInTheDocument();
   });
 
   test('renders "Delete" btn on default load', () => {
-    render(<DataCollection />);
+    render(<Experience />);
     const btns = screen.getAllByRole('button');
     const deleteBtn = btns.find((btn) => btn.innerHTML === 'Delete');
     expect(deleteBtn).toBeInTheDocument();
   });
 
   test('when multiple sections are rendered, only the last section has an "Add" and "Delete" button', () => {
-    render(<DataCollection />);
+    render(<Experience />);
     addSections(4);
     const sections = screen.getAllByTitle('This is an Experience Section');
     const lastSection = sections.slice(-1)[0];
@@ -51,7 +52,7 @@ describe('Experience Section', () => {
   });
 
   test('when multiple sections are rendered, all but the last section will only have the "Delete" button', () => {
-    render(<DataCollection />);
+    render(<Experience />);
     addSections(4);
     const sections = screen.getAllByTitle('This is an Experience Section');
     for (let i = 0; i < sections.length - 1; ++i) {
@@ -60,7 +61,7 @@ describe('Experience Section', () => {
   });
 
   test('"Delete" button can delete the default experience section', () => {
-    render(<DataCollection />);
+    render(<Experience />);
     const defaultSection = screen.getByTitle('This is an Experience Section');
     const deleteBtn = defaultSection.lastChild.firstChild;
     fireEvent.click(deleteBtn);
@@ -81,5 +82,37 @@ describe('Experience Section', () => {
 
     expect(addBtn.innerHTML).toBe('Add');
     expect(numOfBtns).toBe(1);
+  });
+
+  test('"Delete" button deletes specific sections', () => {
+    render(<Experience />);
+    addSections(4);
+    const sections = screen.getAllByTitle('This is an Experience Section');
+    const thirdSection = sections[2];
+    const deleteBtn = thirdSection.lastChild.children[0];
+    fireEvent.click(deleteBtn);
+    expect(thirdSection).not.toBeInTheDocument();
+  });
+
+  test('the last section in an array of sections is only allowed to have "add" & "delete" btn', () => {
+    render(<Experience />);
+    addSections(4);
+    let sections = screen.getAllByTitle('This is an Experience Section');
+    let lastSection = sections[sections.length - 1];
+    for (let i = 0; i < sections.length - 1; ++i) {
+      const btnsContainer = sections[i].lastChild.children;
+      expect(btnsContainer.length).toBe(1);
+    }
+    expect(lastSection.lastChild.children.length).toBe(2);
+
+    const deleteBtn = lastSection.lastChild.children[0];
+    fireEvent.click(deleteBtn);
+    sections = screen.getAllByTitle('This is an Experience Section');
+    lastSection = sections[sections.length - 1];
+    for (let i = 0; i < sections.length - 1; ++i) {
+      const btnsContainer = sections[i].lastChild.children;
+      expect(btnsContainer.length).toBe(1);
+    }
+    expect(lastSection.lastChild.children.length).toBe(2);
   });
 });

@@ -21,7 +21,7 @@ class DataCollection extends Component {
             title="This is a section of experiences"
           >
             <Category name="Experience" />
-            <Experience createSection={this.createSection} />
+            <Experience />
           </div>
           <ResetBtn />
         </form>

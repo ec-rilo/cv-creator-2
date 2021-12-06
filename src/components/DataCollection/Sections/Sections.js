@@ -97,7 +97,6 @@ class ExperienceSection extends Component {
     if (isMainSection === true) {
       btn = (
         <AddRemoveBtn
-          section="experience"
           sectionKey={sectionKey}
           isMainSection={isMainSection}
           createSection={sectionCreation}

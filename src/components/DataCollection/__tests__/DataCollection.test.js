@@ -186,13 +186,13 @@ describe('Education Section', () => {
 
   test('Only "AddBtn" appears when there are no sections', () => {
     render(<DataCollection />);
-    const experienceContainer = screen.getByTitle(
+    const sectionContainer = screen.getByTitle(
       'This is a section of education'
     );
     const defaultSection = screen.getByTitle('This is an Education Section');
     const deleteBtn = defaultSection.lastChild.firstChild;
     fireEvent.click(deleteBtn);
-    const btnContainer = experienceContainer.firstChild.nextSibling;
+    const btnContainer = sectionContainer.firstChild.nextSibling;
     const numOfBtns = btnContainer.children.length;
     const addBtn = btnContainer.firstChild.firstChild;
 

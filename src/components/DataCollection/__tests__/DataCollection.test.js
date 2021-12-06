@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import DataCollection from '../DataCollection';
+import Experience from '../Sections/experience';
 
 describe('Experience Section', () => {
   const addSections = (numOfSections) => {
@@ -12,7 +13,7 @@ describe('Experience Section', () => {
   };
 
   test('can render 1 new section when "add" button is clicked', () => {
-    render(<DataCollection />);
+    render(<Experience />);
     const btns = screen.getAllByRole('button');
     const addBtn = btns.find((btn) => btn.innerHTML === 'Add');
     fireEvent.click(addBtn);

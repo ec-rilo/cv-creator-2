@@ -90,7 +90,7 @@ class PersonalInfoSection extends Component {
 
 class ExperienceSection extends Component {
   render() {
-    const { isMainSection, sectionCreation, removeSection, sectionKey } =
+    const { isMainSection, createSection, removeSection, sectionKey } =
       this.props;
 
     let btn;
@@ -99,7 +99,7 @@ class ExperienceSection extends Component {
         <AddRemoveBtn
           sectionKey={sectionKey}
           isMainSection={isMainSection}
-          createSection={sectionCreation}
+          createSection={createSection}
           removeSection={removeSection}
         />
       );

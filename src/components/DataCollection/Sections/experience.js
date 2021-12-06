@@ -75,11 +75,7 @@ class Experience extends Component {
     if (this.state.experienceSections.length === 0) {
       return (
         <div>
-          <AddBtn
-            section="experience"
-            sectionKey={uniqid()}
-            createSection={this.createSection}
-          />
+          <AddBtn sectionKey={uniqid()} createSection={this.createSection} />
         </div>
       );
     } else {

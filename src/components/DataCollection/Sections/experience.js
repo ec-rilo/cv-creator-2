@@ -72,7 +72,7 @@ class Experience extends Component {
 
   render() {
     const { experienceSections } = this.state;
-    if (this.state.experienceSections.length === 0) {
+    if (experienceSections.length === 0) {
       return (
         <div>
           <AddBtn sectionKey={uniqid()} createSection={this.createSection} />

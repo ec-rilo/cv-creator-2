@@ -1,17 +1,17 @@
 // This will provide a container that will hold and dynamically grow sections of experience.
 import React, { Component } from 'react';
-import { ExperienceSection } from './Sections';
+import { EducationSection } from './Sections';
 import { AddBtn } from '../Buttons/AddRemoveBtn';
 import uniqid from 'uniqid';
 
-class Experience extends Component {
+class Education extends Component {
   constructor(props) {
     super(props);
 
     const key1 = uniqid();
     const key2 = uniqid();
     this.state = {
-      experienceSections: [
+      educationSections: [
         {
           key: key1,
           sectionKey: key1,
@@ -31,7 +31,7 @@ class Experience extends Component {
 
   createSection = () => {
     this.setState({
-      experienceSections: this.state.experienceSections
+      educationSections: this.state.educationSections
         .concat(this.state.section)
         .map((section, index, array) => {
           if (index === array.length - 1) {
@@ -56,7 +56,7 @@ class Experience extends Component {
 
   removeSection = (sectionId) => {
     this.setState({
-      experienceSections: this.state.experienceSections
+      educationSections: this.state.educationSections
         .filter((section) => section.sectionKey !== sectionId)
         .map((section, index, array) => {
           if (index === array.length - 1) {
@@ -71,8 +71,8 @@ class Experience extends Component {
   };
 
   render() {
-    const { experienceSections } = this.state;
-    if (experienceSections.length === 0) {
+    const { educationSections } = this.state;
+    if (educationSections.length === 0) {
       return (
         <div>
           <AddBtn sectionKey={uniqid()} createSection={this.createSection} />
@@ -81,9 +81,9 @@ class Experience extends Component {
     } else {
       return (
         <div>
-          {experienceSections.map((section) => {
+          {educationSections.map((section) => {
             return (
-              <ExperienceSection
+              <EducationSection
                 key={section.key}
                 sectionKey={section.sectionKey}
                 isMainSection={section.isMainSection}
@@ -98,4 +98,4 @@ class Experience extends Component {
   }
 }
 
-export default Experience;
+export default Education;

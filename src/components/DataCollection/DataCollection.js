@@ -5,6 +5,7 @@ import ResetBtn from './Buttons/ResetBtn';
 import Header from './Header/Header';
 import { PersonalInfoSection } from './Sections/Sections';
 import Experience from './Sections/experience';
+import Education from './Sections/Education';
 
 class DataCollection extends Component {
   render() {
@@ -21,7 +22,11 @@ class DataCollection extends Component {
             title="This is a section of experiences"
           >
             <Category name="Experience" />
-            <Experience createSection={this.createSection} />
+            <Experience />
+          </div>
+          <div className="info-section" title="This is a section of education">
+            <Category name="Education" />
+            <Education />
           </div>
           <ResetBtn />
         </form>

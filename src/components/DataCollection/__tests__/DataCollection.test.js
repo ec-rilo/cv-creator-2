@@ -93,4 +93,26 @@ describe('Experience Section', () => {
     fireEvent.click(deleteBtn);
     expect(thirdSection).not.toBeInTheDocument();
   });
+
+  test('the last section in an array of sections is only allowed to have "add" & "delete" btn', () => {
+    render(<Experience />);
+    addSections(4);
+    let sections = screen.getAllByTitle('This is an Experience Section');
+    let lastSection = sections[sections.length - 1];
+    for (let i = 0; i < sections.length - 1; ++i) {
+      const btnsContainer = sections[i].lastChild.children;
+      expect(btnsContainer.length).toBe(1);
+    }
+    expect(lastSection.lastChild.children.length).toBe(2);
+
+    const deleteBtn = lastSection.lastChild.children[0];
+    fireEvent.click(deleteBtn);
+    sections = screen.getAllByTitle('This is an Experience Section');
+    lastSection = sections[sections.length - 1];
+    for (let i = 0; i < sections.length - 1; ++i) {
+      const btnsContainer = sections[i].lastChild.children;
+      expect(btnsContainer.length).toBe(1);
+    }
+    expect(lastSection.lastChild.children.length).toBe(2);
+  });
 });

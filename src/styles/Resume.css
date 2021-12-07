@@ -43,3 +43,12 @@
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
+
+.about-text-container {
+  flex-grow: 1;
+  resize: none;
+  border: none;
+  outline: none;
+  font-family: var(--fnt-primary);
+  pointer-events: none;
+}

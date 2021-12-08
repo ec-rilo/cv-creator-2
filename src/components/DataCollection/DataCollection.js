@@ -7,16 +7,52 @@ import { PersonalInfoSection } from './Sections/Sections';
 import Experience from './Sections/experience';
 import Education from './Sections/Education';
 import Skill from './Sections/Skill';
+import uniqid from 'uniqid';
 
 class DataCollection extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      personalInfo: [],
+    };
+
+    this.updateCategories = this.updateCategories.bind(this);
+  }
+
+  updateCategories = (sectionName, data) => {
+    let section = [];
+    switch (sectionName) {
+      case 'Personal Info':
+        section = [data];
+        this.setState(
+          {
+            personalInfo: section,
+          },
+          () =>
+            this.props.updateSectionData(
+              this.state.personalInfo,
+              'Personal Info'
+            )
+        );
+        break;
+      default:
+        break;
+    }
+  };
+
   render() {
+    const { updateSectionData } = this.props;
     return (
       <div className="data-collection-container">
         <Header />
         <form action="#" method="#">
           <div className="info-section">
             <Category name="Personal Information" />
-            <PersonalInfoSection />
+            <PersonalInfoSection
+              updateSectionData={updateSectionData}
+              updateCategories={this.updateCategories}
+            />
           </div>
           <div
             className="info-section"

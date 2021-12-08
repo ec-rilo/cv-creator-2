@@ -53,6 +53,12 @@ class PersonalInfoSection extends Component {
           this.props.updateCategories('Personal Info', this.state.data);
         });
         break;
+      case 'image-file':
+        newObj.image = value;
+        this.setState({ data: newObj }, () => {
+          this.props.updateCategories('Personal Info', this.state.data);
+        });
+        break;
       default:
         console.log('this is not a valid input name - Sections.js');
     }
@@ -90,6 +96,7 @@ class PersonalInfoSection extends Component {
             forProp: 'image-file',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         <TextInput
           inputInfo={{

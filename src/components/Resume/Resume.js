@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../styles/Resume.css';
 import UpperSection from './Sections/UpperSection/UpperSection';
+import TitleBlock from './Sections/TitleBlock';
 
 class Resume extends Component {
   render() {
@@ -8,6 +9,7 @@ class Resume extends Component {
     return (
       <div className="resume-container">
         <UpperSection data={data} />
+        <TitleBlock />
       </div>
     );
   }

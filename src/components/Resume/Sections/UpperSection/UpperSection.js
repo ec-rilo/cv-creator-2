@@ -7,7 +7,7 @@ class UpperSection extends Component {
     const { data } = this.props;
     return (
       <div className="upper-section-container">
-        <UserImg />
+        <UserImg data={data} />
         <About data={data} />
       </div>
     );

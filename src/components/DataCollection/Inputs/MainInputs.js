@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class TextInput extends Component {
   render() {
-    const { inputInfo } = this.props;
+    const { inputInfo, updateData } = this.props;
     return (
       <div className="default-input-container">
         <label htmlFor={inputInfo.forProp}></label>
@@ -10,6 +10,7 @@ class TextInput extends Component {
           type="text"
           id={inputInfo.forProp}
           placeholder={inputInfo.text}
+          onChange={(e) => updateData(inputInfo.forProp, e.target.value)}
           required
         ></input>
       </div>
@@ -74,7 +75,7 @@ class EmailInput extends Component {
 
 class DescriptionInput extends Component {
   render() {
-    const { inputInfo } = this.props;
+    const { inputInfo, updateData } = this.props;
 
     return (
       <div className="description-input-container">
@@ -82,6 +83,7 @@ class DescriptionInput extends Component {
         <textarea
           id={inputInfo.forProp}
           placeholder={inputInfo.text}
+          onChange={(e) => updateData(inputInfo.forProp, e.target.value)}
           required
         ></textarea>
       </div>

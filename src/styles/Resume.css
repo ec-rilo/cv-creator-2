@@ -52,3 +52,31 @@
   font-family: var(--fnt-primary);
   pointer-events: none;
 }
+
+/* TitleBlock styling */
+
+.title-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 130px;
+  background-color: var(--secondary-clr);
+  font-family: var(--fnt-primary);
+}
+
+.title-block > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  width: 150px;
+  background-color: var(--tertiary-clr);
+  height: 50px;
+  padding: 0 100px 0 50px;
+  line-height: 1.2;
+  overflow: hidden;
+}
+
+.title-block > div:nth-child(2) {
+  font-size: 3rem;
+  color: var(--fnt-clr-primary);
+  padding-left: 30px;
+}

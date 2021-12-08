@@ -10,6 +10,54 @@ import { AddRemoveBtn, DeleteBtn } from '../Buttons/AddRemoveBtn';
 import uniqid from 'uniqid';
 
 class PersonalInfoSection extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: {
+        firstName: '',
+        lastName: '',
+        title: '',
+        image: '',
+        city: '',
+        state: '',
+        tel: '',
+        email: '',
+        linkedin: '',
+        description: '',
+      },
+    };
+
+    this.updateData = this.updateData.bind(this);
+  }
+
+  updateData = (inputName, value) => {
+    const newObj = { ...this.state.data };
+
+    switch (inputName) {
+      case 'description':
+        newObj.description = value;
+        this.setState({ data: newObj }, () => {
+          this.props.updateCategories('Personal Info', this.state.data);
+        });
+        break;
+      case 'title':
+        newObj.title = value;
+        this.setState({ data: newObj }, () => {
+          this.props.updateCategories('Personal Info', this.state.data);
+        });
+        break;
+      case 'first-name':
+        newObj.firstName = value;
+        this.setState({ data: newObj }, () => {
+          this.props.updateCategories('Personal Info', this.state.data);
+        });
+        break;
+      default:
+        console.log('this is not a valid input name - Sections.js');
+    }
+  };
+
   render() {
     return (
       <div>
@@ -19,6 +67,7 @@ class PersonalInfoSection extends Component {
             forProp: 'first-name',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         <TextInput
           inputInfo={{
@@ -33,6 +82,7 @@ class PersonalInfoSection extends Component {
             forProp: 'title',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         <ImgInput
           inputInfo={{
@@ -82,6 +132,7 @@ class PersonalInfoSection extends Component {
             forProp: 'description',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
       </div>
     );

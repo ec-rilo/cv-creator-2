@@ -9,7 +9,7 @@ class Resume extends Component {
     return (
       <div className="resume-container">
         <UpperSection data={data} />
-        <TitleBlock />
+        <TitleBlock data={data} />
       </div>
     );
   }

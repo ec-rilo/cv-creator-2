@@ -41,6 +41,18 @@ class PersonalInfoSection extends Component {
           this.props.updateCategories('Personal Info', this.state.data);
         });
         break;
+      case 'title':
+        newObj.title = value;
+        this.setState({ data: newObj }, () => {
+          this.props.updateCategories('Personal Info', this.state.data);
+        });
+        break;
+      case 'first-name':
+        newObj.firstName = value;
+        this.setState({ data: newObj }, () => {
+          this.props.updateCategories('Personal Info', this.state.data);
+        });
+        break;
       default:
         console.log('this is not a valid input name - Sections.js');
     }
@@ -55,6 +67,7 @@ class PersonalInfoSection extends Component {
             forProp: 'first-name',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         <TextInput
           inputInfo={{
@@ -69,6 +82,7 @@ class PersonalInfoSection extends Component {
             forProp: 'title',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         <ImgInput
           inputInfo={{

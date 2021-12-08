@@ -69,8 +69,10 @@
   align-items: center;
   width: 150px;
   background-color: var(--tertiary-clr);
-  padding: 15px 100px 15px 50px;
+  height: 50px;
+  padding: 0 100px 0 50px;
   line-height: 1.2;
+  overflow: hidden;
 }
 
 .title-block > div:nth-child(2) {

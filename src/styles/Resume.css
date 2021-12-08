@@ -52,3 +52,29 @@
   font-family: var(--fnt-primary);
   pointer-events: none;
 }
+
+/* TitleBlock styling */
+
+.title-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 130px;
+  background-color: var(--secondary-clr);
+  font-family: var(--fnt-primary);
+}
+
+.title-block > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  width: 150px;
+  background-color: var(--tertiary-clr);
+  padding: 15px 100px 15px 50px;
+  line-height: 1.2;
+}
+
+.title-block > div:nth-child(2) {
+  font-size: 3rem;
+  color: var(--fnt-clr-primary);
+  padding-left: 30px;
+}

@@ -10,8 +10,8 @@ class TitleBlock extends Component {
         </div>
         <div>
           <p>
-            {data[0] === '' ? '' : data[0][0].firstName}{' '}
-            {data[0] === '' ? '' : data[0][0].lastName}
+            {data[0] === '' ? '' : data[0][0]['first-name']}{' '}
+            {data[0] === '' ? '' : data[0][0]['last-name']}
           </p>
         </div>
       </div>

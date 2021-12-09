@@ -53,6 +53,12 @@ class PersonalInfoSection extends Component {
           this.props.updateCategories('Personal Info', this.state.data);
         });
         break;
+      case 'last-name':
+        newObj.lastName = value;
+        this.setState({ data: newObj }, () => {
+          this.props.updateCategories('Personal Info', this.state.data);
+        });
+        break;
       case 'image-file':
         newObj.image = value;
         this.setState({ data: newObj }, () => {
@@ -81,6 +87,7 @@ class PersonalInfoSection extends Component {
             forProp: 'last-name',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         <TextInput
           inputInfo={{

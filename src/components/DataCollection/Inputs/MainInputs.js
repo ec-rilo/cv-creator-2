@@ -41,7 +41,7 @@ class ImgInput extends Component {
 
 class TelInput extends Component {
   render() {
-    const { inputInfo } = this.props;
+    const { inputInfo, updateData } = this.props;
 
     return (
       <div className="default-input-container">
@@ -50,6 +50,7 @@ class TelInput extends Component {
           type="tel"
           id={inputInfo.forProp}
           placeholder={inputInfo.text}
+          onChange={(e) => updateData(inputInfo.forProp, e.target.value)}
           required
         ></input>
       </div>
@@ -59,7 +60,7 @@ class TelInput extends Component {
 
 class EmailInput extends Component {
   render() {
-    const { inputInfo } = this.props;
+    const { inputInfo, updateData } = this.props;
     return (
       <div className="default-input-container">
         <label htmlFor={inputInfo.forProp}></label>
@@ -67,6 +68,7 @@ class EmailInput extends Component {
           type="email"
           id={inputInfo.forProp}
           placeholder={inputInfo.text}
+          onChange={(e) => updateData(inputInfo.forProp, e.target.value)}
           required
         ></input>
       </div>

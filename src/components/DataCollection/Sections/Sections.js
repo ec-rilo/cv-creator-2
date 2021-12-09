@@ -15,10 +15,10 @@ class PersonalInfoSection extends Component {
 
     this.state = {
       data: {
-        firstName: '',
-        lastName: '',
+        'first-name': '',
+        'last-name': '',
         title: '',
-        image: '',
+        'image-file': '',
         city: '',
         state: '',
         tel: '',
@@ -34,28 +34,27 @@ class PersonalInfoSection extends Component {
   updateData = (inputName, value) => {
     const newObj = { ...this.state.data };
 
-    switch (inputName) {
-      case 'description':
-        newObj.description = value;
+    const sectionNames = [
+      'description',
+      'title',
+      'first-name',
+      'last-name',
+      'image-file',
+      'city',
+      'state',
+      'phone',
+      'email',
+      'linkedin-link',
+    ];
+
+    sectionNames.forEach((sectionName) => {
+      if (sectionName === inputName) {
+        newObj[inputName] = value;
         this.setState({ data: newObj }, () => {
           this.props.updateCategories('Personal Info', this.state.data);
         });
-        break;
-      case 'title':
-        newObj.title = value;
-        this.setState({ data: newObj }, () => {
-          this.props.updateCategories('Personal Info', this.state.data);
-        });
-        break;
-      case 'first-name':
-        newObj.firstName = value;
-        this.setState({ data: newObj }, () => {
-          this.props.updateCategories('Personal Info', this.state.data);
-        });
-        break;
-      default:
-        console.log('this is not a valid input name - Sections.js');
-    }
+      }
+    });
   };
 
   render() {
@@ -75,6 +74,7 @@ class PersonalInfoSection extends Component {
             forProp: 'last-name',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         <TextInput
           inputInfo={{
@@ -90,6 +90,7 @@ class PersonalInfoSection extends Component {
             forProp: 'image-file',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         <TextInput
           inputInfo={{
@@ -97,6 +98,7 @@ class PersonalInfoSection extends Component {
             forProp: 'city',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         <TextInput
           inputInfo={{
@@ -104,6 +106,7 @@ class PersonalInfoSection extends Component {
             forProp: 'state',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         <TelInput
           inputInfo={{
@@ -111,6 +114,7 @@ class PersonalInfoSection extends Component {
             forProp: 'phone',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         <EmailInput
           inputInfo={{
@@ -118,6 +122,7 @@ class PersonalInfoSection extends Component {
             forProp: 'email',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         <TextInput
           inputInfo={{
@@ -125,6 +130,7 @@ class PersonalInfoSection extends Component {
             forProp: 'linkedin-link',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         <DescriptionInput
           inputInfo={{

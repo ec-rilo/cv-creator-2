@@ -3,9 +3,10 @@ import Contact from './Sections/Contact';
 
 class InfoBlock extends Component {
   render() {
+    const { data } = this.props;
     return (
       <div className="info-block">
-        <Contact />
+        <Contact data={data} />
       </div>
     );
   }

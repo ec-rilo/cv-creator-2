@@ -9,7 +9,10 @@ class TitleBlock extends Component {
           <p>{data[0] === '' ? '' : data[0][0].title}</p>
         </div>
         <div>
-          <p>{data[0] === '' ? '' : data[0][0].firstName}</p>
+          <p>
+            {data[0] === '' ? '' : data[0][0].firstName}{' '}
+            {data[0] === '' ? '' : data[0][0].lastName}
+          </p>
         </div>
       </div>
     );

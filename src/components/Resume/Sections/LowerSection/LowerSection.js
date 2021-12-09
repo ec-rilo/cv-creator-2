@@ -4,9 +4,10 @@ import WorkContainer from './WorkContainer';
 
 class LowerSection extends Component {
   render() {
+    const { data } = this.props;
     return (
       <div className="lower-section">
-        <InfoBlock />
+        <InfoBlock data={data} />
         <div className="separation-line"></div>
         <WorkContainer />
       </div>

@@ -29,19 +29,16 @@ class Education extends Component {
   }
 
   createSection = () => {
-    this.setState({
-      educationSections: this.state.educationSections
-        .concat(this.state.section)
-        .map((section, index, array) => {
-          if (index === array.length - 1) {
-            section.isMainSection = true;
-            return section;
-          } else {
-            section.isMainSection = false;
-            return section;
-          }
-        }),
-    });
+    this.setState(
+      {
+        educationSections: this.state.educationSections.concat(
+          this.state.section
+        ),
+      },
+      () => {
+        this.updateMainSection(this.state.educationSections);
+      }
+    );
 
     const newKey = uniqid();
     this.setState({
@@ -50,6 +47,20 @@ class Education extends Component {
         sectionKey: newKey,
         isMainSection: true,
       },
+    });
+  };
+
+  updateMainSection = (section) => {
+    this.setState({
+      educationSections: section.map((section, index, array) => {
+        if (index === array.length - 1) {
+          section.isMainSection = true;
+          return section;
+        } else {
+          section.isMainSection = false;
+          return section;
+        }
+      }),
     });
   };
 

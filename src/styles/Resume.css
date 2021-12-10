@@ -104,7 +104,7 @@
 
 .info-block {
   height: 100%;
-  width: 250px;
+  width: 300px;
   background-color: var(--tertiary-clr);
 }
 
@@ -135,4 +135,24 @@
   align-items: center;
   justify-content: flex-end;
   gap: 15px;
+}
+
+.education-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: var(--fnt-primary);
+  gap: 5px;
+  font-size: 1rem;
+}
+
+.education-section > p:nth-child(1) {
+  font-family: var(--fnt-primary-bld);
+  font-size: 1.2rem;
+}
+
+.education-sections-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

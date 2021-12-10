@@ -156,6 +156,7 @@ class ExperienceSection extends Component {
         'job-location': '',
         'start-date': '',
         'end-date': '',
+        description: '',
       },
     };
 
@@ -171,6 +172,7 @@ class ExperienceSection extends Component {
       'job-location',
       'start-date',
       'end-date',
+      'description',
     ];
 
     sectionNames.forEach((section) => {
@@ -238,6 +240,14 @@ class ExperienceSection extends Component {
           inputInfo={{
             text: 'To',
             forProp: 'end-date',
+            key: uniqid(),
+          }}
+          updateData={this.updateData}
+        />
+        <DescriptionInput
+          inputInfo={{
+            text: 'Description',
+            forProp: 'description',
             key: uniqid(),
           }}
           updateData={this.updateData}

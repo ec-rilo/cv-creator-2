@@ -1,3 +1,34 @@
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url('../fonts/Roboto/Roboto-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url('../fonts/Roboto/Roboto-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url('../fonts/Roboto/Roboto-Light.ttf');
+}
+
+:root {
+  /* Colors */
+  --fnt-clr-primary: #fff;
+  --primary-clr: #f8daea;
+  --secondary-clr: #8b687f;
+  --tertiary-clr: #fff;
+  --separation-line-clr: #c4c4c4;
+  --resume-category-clr: rgba(139, 104, 127, 0.3);
+  --high-priority-clr: #fe5f55;
+
+  /* Fonts */
+  --fnt-primary: 'Roboto-Regular';
+  --fnt-primary-bld: 'Roboto-Bold';
+  --fnt-primary-light: 'Roboto-Light';
+}
+
 body {
   background-color: #3d5a80;
 }

@@ -1,6 +1,5 @@
 .data-collection-container {
-  min-width: 800px;
-  width: 1000px;
+  width: 800px;
   background-color: var(--primary-clr);
 }
 

@@ -156,3 +156,20 @@
   flex-direction: column;
   gap: 10px;
 }
+
+.skill-section {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 10px;
+  font-family: var(--fnt-primary);
+  background-color: var(--secondary-clr);
+  color: var(--fnt-clr-primary);
+}
+
+.skills-section-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}

@@ -30,6 +30,12 @@ class App extends Component {
           dataCategories: categories,
         });
         break;
+      case 'Skills':
+        categories[3] = data;
+        this.setState({
+          dataCategories: categories,
+        });
+        break;
       default:
         console.log('Error in updateSectionData() - App.js');
     }

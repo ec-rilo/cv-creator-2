@@ -15,6 +15,7 @@ class Education extends Component {
           key: key1,
           sectionKey: key1,
           isMainSection: true,
+          data: '',
         },
       ],
       section: {
@@ -29,19 +30,16 @@ class Education extends Component {
   }
 
   createSection = () => {
-    this.setState({
-      educationSections: this.state.educationSections
-        .concat(this.state.section)
-        .map((section, index, array) => {
-          if (index === array.length - 1) {
-            section.isMainSection = true;
-            return section;
-          } else {
-            section.isMainSection = false;
-            return section;
-          }
-        }),
-    });
+    this.setState(
+      {
+        educationSections: this.state.educationSections.concat(
+          this.state.section
+        ),
+      },
+      () => {
+        this.updateMainSection(this.state.educationSections);
+      }
+    );
 
     const newKey = uniqid();
     this.setState({
@@ -51,6 +49,42 @@ class Education extends Component {
         isMainSection: true,
       },
     });
+  };
+
+  updateMainSection = (section) => {
+    this.setState({
+      educationSections: section.map((section, index, array) => {
+        if (index === array.length - 1) {
+          section.isMainSection = true;
+          return section;
+        } else {
+          section.isMainSection = false;
+          return section;
+        }
+      }),
+    });
+  };
+
+  updateEducationSections = (section, key) => {
+    let tempArr = [...this.state.educationSections];
+    tempArr.forEach((obj) => {
+      if (obj.key === key) {
+        obj.data = section;
+      }
+    });
+
+    this.setState(
+      {
+        educationSections: tempArr,
+      },
+      () => {
+        let newArr = [];
+        this.state.educationSections.forEach((section) => {
+          newArr.push(section.data);
+        });
+        this.props.updateCategories('Education', newArr);
+      }
+    );
   };
 
   removeSection = (sectionId) => {
@@ -88,6 +122,7 @@ class Education extends Component {
                 isMainSection={section.isMainSection}
                 createSection={this.createSection}
                 removeSection={this.removeSection}
+                updateEducationSections={this.updateEducationSections}
               />
             );
           })}

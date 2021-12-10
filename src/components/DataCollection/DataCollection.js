@@ -15,6 +15,8 @@ class DataCollection extends Component {
 
     this.state = {
       personalInfo: [],
+      education: '',
+      skills: '',
     };
 
     this.updateCategories = this.updateCategories.bind(this);
@@ -34,6 +36,24 @@ class DataCollection extends Component {
               this.state.personalInfo,
               'Personal Info'
             )
+        );
+        break;
+      case 'Education':
+        section = [data];
+        this.setState(
+          {
+            education: section,
+          },
+          () => this.props.updateSectionData(this.state.education, 'Education')
+        );
+        break;
+      case 'Skills':
+        section = data;
+        this.setState(
+          {
+            skills: section,
+          },
+          () => this.props.updateSectionData(this.state.skills, 'Skills')
         );
         break;
       default:
@@ -63,11 +83,11 @@ class DataCollection extends Component {
           </div>
           <div className="info-section" title="This is a section of education">
             <Category name="Education" />
-            <Education />
+            <Education updateCategories={this.updateCategories} />
           </div>
           <div className="info-section" title="This is a section of skills">
             <Category name="Skills" />
-            <Skill />
+            <Skill updateCategories={this.updateCategories} />
           </div>
           <ResetBtn />
         </form>

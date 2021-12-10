@@ -207,6 +207,44 @@ class ExperienceSection extends Component {
 }
 
 class EducationSection extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: {
+        'uni-name': '',
+        degree: '',
+        'uni-start-date': '',
+        'uni-end-date': '',
+      },
+    };
+
+    this.updateData = this.updateData.bind(this);
+  }
+
+  updateData = (inputName, value) => {
+    const newObj = { ...this.state.data };
+
+    const sectionNames = [
+      'uni-name',
+      'degree',
+      'uni-start-date',
+      'uni-end-date',
+    ];
+
+    sectionNames.forEach((section) => {
+      if (section === inputName) {
+        newObj[inputName] = value;
+        this.setState({ data: newObj }, () => {
+          this.props.updateEducationSections(
+            this.state.data,
+            this.props.sectionKey
+          );
+        });
+      }
+    });
+  };
+
   render() {
     const { isMainSection, createSection, removeSection, sectionKey } =
       this.props;
@@ -232,6 +270,7 @@ class EducationSection extends Component {
             forProp: 'uni-name',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         <TextInput
           inputInfo={{
@@ -239,6 +278,7 @@ class EducationSection extends Component {
             forProp: 'degree',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         <TextInput
           inputInfo={{
@@ -246,6 +286,7 @@ class EducationSection extends Component {
             forProp: 'uni-start-date',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         <TextInput
           inputInfo={{
@@ -253,6 +294,7 @@ class EducationSection extends Component {
             forProp: 'uni-end-date',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         {btn}
       </div>
@@ -261,6 +303,36 @@ class EducationSection extends Component {
 }
 
 class SkillSection extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: {
+        'skill-name': '',
+      },
+    };
+
+    this.updateData = this.updateData.bind(this);
+  }
+
+  updateData = (inputName, value) => {
+    const newObj = { ...this.state.data };
+
+    const sectionNames = ['skill-name'];
+
+    sectionNames.forEach((section) => {
+      if (section === inputName) {
+        newObj[inputName] = value;
+        this.setState({ data: newObj }, () => {
+          this.props.updateSkillsSection(
+            this.state.data,
+            this.props.sectionKey
+          );
+        });
+      }
+    });
+  };
+
   render() {
     const { isMainSection, createSection, removeSection, sectionKey } =
       this.props;
@@ -286,6 +358,7 @@ class SkillSection extends Component {
             forProp: 'skill-name',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         {btn}
       </div>

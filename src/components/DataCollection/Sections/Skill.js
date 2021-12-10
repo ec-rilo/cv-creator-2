@@ -26,6 +26,7 @@ class Skill extends Component {
 
     this.createSection = this.createSection.bind(this);
     this.removeSection = this.removeSection.bind(this);
+    this.updateSkillsSection = this.updateSkillsSection.bind(this);
   }
 
   createSection = () => {
@@ -51,6 +52,28 @@ class Skill extends Component {
         isMainSection: true,
       },
     });
+  };
+
+  updateSkillsSection = (section, key) => {
+    let tempArr = [...this.state.skillSections];
+    tempArr.forEach((obj) => {
+      if (obj.key === key) {
+        obj.data = section;
+      }
+    });
+
+    this.setState(
+      {
+        skillSections: tempArr,
+      },
+      () => {
+        let newArr = [];
+        this.state.skillSections.forEach((section) => {
+          newArr.push(section.data);
+        });
+        this.props.updateCategories('Skills', newArr);
+      }
+    );
   };
 
   removeSection = (sectionId) => {
@@ -88,6 +111,7 @@ class Skill extends Component {
                 isMainSection={section.isMainSection}
                 createSection={this.createSection}
                 removeSection={this.removeSection}
+                updateSkillsSection={this.updateSkillsSection}
               />
             );
           })}

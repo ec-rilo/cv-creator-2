@@ -22,7 +22,6 @@ class Contact extends Component {
       : data[0][0]['city'] + ', ';
 
     const state = this.isNotValidData('state') ? 'State' : data[0][0]['state'];
-    console.log(data);
 
     return (
       <div className="resume-section-container">

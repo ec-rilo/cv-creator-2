@@ -15,6 +15,7 @@ class Education extends Component {
           key: key1,
           sectionKey: key1,
           isMainSection: true,
+          data: '',
         },
       ],
       section: {
@@ -64,6 +65,28 @@ class Education extends Component {
     });
   };
 
+  updateEducationSections = (section, key) => {
+    let tempArr = [...this.state.educationSections];
+    tempArr.forEach((obj) => {
+      if (obj.key === key) {
+        obj.data = section;
+      }
+    });
+
+    this.setState(
+      {
+        educationSections: tempArr,
+      },
+      () => {
+        let newArr = [];
+        this.state.educationSections.forEach((section) => {
+          newArr.push(section.data);
+        });
+        this.props.updateCategories('Education', newArr);
+      }
+    );
+  };
+
   removeSection = (sectionId) => {
     this.setState({
       educationSections: this.state.educationSections
@@ -99,6 +122,7 @@ class Education extends Component {
                 isMainSection={section.isMainSection}
                 createSection={this.createSection}
                 removeSection={this.removeSection}
+                updateEducationSections={this.updateEducationSections}
               />
             );
           })}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import InfoBlock from './InfoBlock/InfoBlock';
-import WorkContainer from './WorkContainer';
+import WorkContainer from './WorkContainer/WorkContainer';
 
 class LowerSection extends Component {
   render() {
@@ -9,7 +9,7 @@ class LowerSection extends Component {
       <div className="lower-section">
         <InfoBlock data={data} />
         <div className="separation-line"></div>
-        <WorkContainer />
+        <WorkContainer data={data} />
       </div>
     );
   }

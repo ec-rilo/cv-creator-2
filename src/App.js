@@ -24,6 +24,12 @@ class App extends Component {
           dataCategories: categories,
         });
         break;
+      case 'Experience':
+        categories[1] = data;
+        this.setState({
+          dataCategories: categories,
+        });
+        break;
       case 'Education':
         categories[2] = data;
         this.setState({

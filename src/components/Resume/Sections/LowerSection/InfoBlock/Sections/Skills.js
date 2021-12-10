@@ -14,7 +14,6 @@ class Skills extends Component {
             <SkillsSection />
           ) : (
             data[3].map((objData) => {
-              console.log(objData);
               return <SkillsSection key={uniqid()} data={objData} />;
             })
           )}

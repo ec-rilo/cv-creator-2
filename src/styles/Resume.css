@@ -19,7 +19,7 @@
 
 .user-img-container {
   height: 100%;
-  width: 250px;
+  width: 300px;
 }
 
 .user-img-container > img:nth-child(1) {

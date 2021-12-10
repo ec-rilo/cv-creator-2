@@ -15,6 +15,7 @@ class Experience extends Component {
           key: key1,
           sectionKey: key1,
           isMainSection: true,
+          data: '',
         },
       ],
       section: {
@@ -26,6 +27,7 @@ class Experience extends Component {
 
     this.createSection = this.createSection.bind(this);
     this.removeSection = this.removeSection.bind(this);
+    this.updateSection = this.updateSection.bind(this);
   }
 
   createSection = () => {
@@ -51,6 +53,28 @@ class Experience extends Component {
         isMainSection: true,
       },
     });
+  };
+
+  updateSection = (section, key) => {
+    let tempArr = [...this.state.experienceSections];
+    tempArr.forEach((obj) => {
+      if (obj.key === key) {
+        obj.data = section;
+      }
+    });
+
+    this.setState(
+      {
+        experienceSections: tempArr,
+      },
+      () => {
+        let newArr = [];
+        this.state.experienceSections.forEach((section) => {
+          newArr.push(section.data);
+        });
+        this.props.updateCategories('Experience', newArr);
+      }
+    );
   };
 
   removeSection = (sectionId) => {
@@ -88,6 +112,7 @@ class Experience extends Component {
                 isMainSection={section.isMainSection}
                 createSection={this.createSection}
                 removeSection={this.removeSection}
+                updateSection={this.updateSection}
               />
             );
           })}

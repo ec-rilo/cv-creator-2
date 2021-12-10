@@ -21,9 +21,9 @@ class PersonalInfoSection extends Component {
         'image-file': '',
         city: '',
         state: '',
-        tel: '',
+        phone: '',
         email: '',
-        linkedin: '',
+        'linkedin-link': '',
         description: '',
       },
     };

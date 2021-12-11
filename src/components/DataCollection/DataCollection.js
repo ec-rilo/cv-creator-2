@@ -7,7 +7,6 @@ import { PersonalInfoSection } from './Sections/Sections';
 import Experience from './Sections/experience';
 import Education from './Sections/Education';
 import Skill from './Sections/Skill';
-import uniqid from 'uniqid';
 
 class DataCollection extends Component {
   constructor(props) {

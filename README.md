@@ -2,7 +2,7 @@
 <h1 align="center">CV-Creator</h1>
 
 <p align="center" width="100%">
-    <img src="./src/images/readme/mockup.png">
+    <img src="./src/images/readme/cv-creator.png">
 </p>
 
 <h4 align="center">CV Creation made easy.</h4>

@@ -2,11 +2,11 @@
 <h1 align="center">CV-Creator</h1>
 
 <p align="center" width="100%">
-    <img src="./src/images/readme/mockup.png">
+    <img src="./src/images/readme/cv-creator.png">
 </p>
 
 <h4 align="center">CV Creation made easy.</h4>
-<p align="center"> <a href="https://ec-cv-creator.netlify.app/">Live</a></p>
+<p align="center"> <a href="https://ec-cv-creator.netlify.app/">View Live >></a></p>
 
 ## Motivation and Story
 With this project I dove deep into the concepts of props and state with react. Finding creative ways to use them

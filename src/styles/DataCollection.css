@@ -1,0 +1,170 @@
+.data-collection-container {
+  width: 800px;
+  background-color: var(--primary-clr);
+}
+
+/* Header Content */
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--secondary-clr);
+  color: var(--fnt-clr-primary);
+  padding: 40px 20px;
+}
+
+h1 {
+  font-size: 3rem;
+  font-family: var(--fnt-primary-bld);
+}
+
+header > p:nth-child(2) {
+  font-size: 1.5rem;
+  font-family: var(--fnt-primary-light);
+}
+
+/* Category Container Component */
+.category-container {
+  display: inline-block;
+  padding: 5px 25px;
+  background-color: var(--secondary-clr);
+  color: var(--fnt-clr-primary);
+  font-family: var(--fnt-primary-bld);
+  font-size: 1.3rem;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.default-input-container {
+  margin: 25px 25px 0 25px;
+  padding: 0 10px 0 10px;
+  height: 35px;
+  background-color: var(--tertiary-clr);
+  border-radius: 10px;
+  font-family: var(--fnt-primary);
+}
+
+.default-input-container > input:nth-child(2) {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline-style: none;
+  font-size: 0.9rem;
+}
+
+.default-input-container > input:nth-child(2)::placeholder {
+  font-size: 0.9rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 0 50px 0;
+  gap: 50px;
+}
+
+/* Img Input */
+
+.img-input {
+  position: relative;
+  padding: 0 0 0 0;
+  overflow: hidden;
+}
+
+/* Moved to the left -100px to prevent non-cursor that appears on the file button */
+.img-input > input:nth-child(2) {
+  opacity: 0;
+  position: absolute;
+  width: 200%;
+  left: -100px;
+  cursor: pointer;
+}
+
+.img-input > p:nth-child(3) {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translate(0, -50%);
+  font-size: 0.9rem;
+  color: #777777;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.description-input-container {
+  margin: 25px 25px 0 25px;
+  padding: 5px 10px 5px 10px;
+  height: 70px;
+  background-color: var(--tertiary-clr);
+  border-radius: 10px;
+  font-family: var(--fnt-primary);
+}
+
+.description-input-container > textarea:nth-child(2) {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  font-family: var(--fnt-primary);
+  font-size: 0.9rem;
+  outline-style: none;
+  border: none;
+  resize: none;
+}
+
+.add-delete-btn-container {
+  display: flex;
+  flex-direction: column;
+  margin: 25px 25px 0 25px;
+  gap: 25px;
+}
+
+.add-delete-btn {
+  background-color: var(--secondary-clr);
+  color: var(--tertiary-clr);
+  border-radius: 5px;
+  height: 40px;
+  font-size: 1rem;
+  font-family: var(--fnt-primary-bld);
+  border: none;
+  cursor: pointer;
+}
+
+.add-delete-btn:hover {
+  background-color: #755b6c;
+}
+
+.add-delete-btn:active {
+  background-color: #624d5a;
+}
+
+.reset-btn-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 25px 0 25px;
+  gap: 25px;
+}
+
+.reset-btn {
+  background-color: var(--high-priority-clr);
+  color: var(--tertiary-clr);
+  border-radius: 5px;
+  height: 40px;
+  font-size: 1rem;
+  font-family: var(--fnt-primary-bld);
+  border: none;
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  background-color: #e05f55;
+}
+
+.reset-btn:active {
+  background-color: #c65f55;
+}

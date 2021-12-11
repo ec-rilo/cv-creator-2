@@ -6,7 +6,7 @@
 </p>
 
 <h4 align="center">CV Creation made easy.</h4>
-<p align="center"> <a href="https://ec-cv-creator.netlify.app/">Live</a></p>
+<p align="center"> <a href="https://ec-cv-creator.netlify.app/">View Live >></a></p>
 
 ## Motivation and Story
 With this project I dove deep into the concepts of props and state with react. Finding creative ways to use them

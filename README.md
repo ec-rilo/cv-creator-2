@@ -6,14 +6,14 @@
 </p>
 
 <h4 align="center">CV Creation made easy.</h4>
-<p align="center"> <a href="#">[Redacted]</a></p>
+<p align="center"> <a href="https://ec-cv-creator.netlify.app/">Live</a></p>
 
 ## Motivation and Story
 With this project I dove deep into the concepts of props and state with react. Finding creative ways to use them
 with as minimal use of the JavaScript equivalent as possible. Having used concepts like raising state and passing props
 to other components in order to update data while also dynamically creating and removing components throughout the project
 I now have a solid concept of how to use them! I also wanted to challenge myself in using react-testing-library which
-can be found sprinkled into the project!
+can be found sprinkled into the project.
 
 ## Code Styles
 This project follows the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript).

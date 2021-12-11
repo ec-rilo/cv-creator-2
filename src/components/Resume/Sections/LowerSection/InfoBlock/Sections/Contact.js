@@ -7,10 +7,21 @@ import linkedinIcon from '../../../../../../images/resume/contact-icons/linkedin
 import ContactSection from './ContactSection';
 
 class Contact extends Component {
+  isNotValidData = (propName) => {
+    if (this.props.data[0] === '' || this.props.data[0][0][propName] === '') {
+      return true;
+    }
+    return false;
+  };
+
   render() {
     const { data } = this.props;
-    const city = data[0] === '' ? '' : data[0][0].city;
-    const state = data[0] === '' ? '' : `, ${data[0][0].state}`;
+
+    const city = this.isNotValidData('city')
+      ? 'City, '
+      : data[0][0]['city'] + ', ';
+
+    const state = this.isNotValidData('state') ? 'State' : data[0][0]['state'];
 
     return (
       <div className="resume-section-container">
@@ -18,12 +29,20 @@ class Contact extends Component {
         <div className="contact-sections-container">
           <ContactSection
             imgIcon={phoneIcon}
-            textContent={data[0] === '' ? '' : data[0][0]['phone']}
+            textContent={
+              this.isNotValidData('phone')
+                ? '000-000-0000'
+                : data[0][0]['phone']
+            }
             altText={'Phone-icon'}
           />
           <ContactSection
             imgIcon={emailIcon}
-            textContent={data[0] === '' ? '' : data[0][0].email}
+            textContent={
+              this.isNotValidData('email')
+                ? 'placeholderemail@gmail.com'
+                : data[0][0]['email']
+            }
             altText={'Email-icon'}
           />
           <ContactSection
@@ -33,7 +52,11 @@ class Contact extends Component {
           />
           <ContactSection
             imgIcon={linkedinIcon}
-            textContent={data[0] === '' ? '' : data[0][0]['linkedin-link']}
+            textContent={
+              this.isNotValidData('linkedin-link')
+                ? 'www.linkedin.com/in/account/'
+                : data[0][0]['linkedin-link']
+            }
             altText={'Linkedin-icon'}
           />
         </div>

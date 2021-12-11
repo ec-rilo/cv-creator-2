@@ -7,7 +7,6 @@ import { PersonalInfoSection } from './Sections/Sections';
 import Experience from './Sections/experience';
 import Education from './Sections/Education';
 import Skill from './Sections/Skill';
-import uniqid from 'uniqid';
 
 class DataCollection extends Component {
   constructor(props) {
@@ -15,6 +14,7 @@ class DataCollection extends Component {
 
     this.state = {
       personalInfo: [],
+      experience: '',
       education: '',
       skills: '',
     };
@@ -36,6 +36,16 @@ class DataCollection extends Component {
               this.state.personalInfo,
               'Personal Info'
             )
+        );
+        break;
+      case 'Experience':
+        section = data;
+        this.setState(
+          {
+            experience: section,
+          },
+          () =>
+            this.props.updateSectionData(this.state.experience, 'Experience')
         );
         break;
       case 'Education':
@@ -79,7 +89,7 @@ class DataCollection extends Component {
             title="This is a section of experiences"
           >
             <Category name="Experience" />
-            <Experience />
+            <Experience updateCategories={this.updateCategories} />
           </div>
           <div className="info-section" title="This is a section of education">
             <Category name="Education" />

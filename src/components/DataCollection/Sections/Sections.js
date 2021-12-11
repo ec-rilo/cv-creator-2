@@ -21,9 +21,9 @@ class PersonalInfoSection extends Component {
         'image-file': '',
         city: '',
         state: '',
-        tel: '',
+        phone: '',
         email: '',
-        linkedin: '',
+        'linkedin-link': '',
         description: '',
       },
     };
@@ -146,6 +146,45 @@ class PersonalInfoSection extends Component {
 }
 
 class ExperienceSection extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: {
+        position: '',
+        company: '',
+        'job-location': '',
+        'start-date': '',
+        'end-date': '',
+        description: '',
+      },
+    };
+
+    this.updateData = this.updateData.bind(this);
+  }
+
+  updateData = (inputName, value) => {
+    const newObj = { ...this.state.data };
+
+    const sectionNames = [
+      'position',
+      'company',
+      'job-location',
+      'start-date',
+      'end-date',
+      'description',
+    ];
+
+    sectionNames.forEach((section) => {
+      if (section === inputName) {
+        newObj[inputName] = value;
+        this.setState({ data: newObj }, () => {
+          this.props.updateSection(this.state.data, this.props.sectionKey);
+        });
+      }
+    });
+  };
+
   render() {
     const { isMainSection, createSection, removeSection, sectionKey } =
       this.props;
@@ -171,6 +210,7 @@ class ExperienceSection extends Component {
             forProp: 'position',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         <TextInput
           inputInfo={{
@@ -178,6 +218,7 @@ class ExperienceSection extends Component {
             forProp: 'company',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         <TextInput
           inputInfo={{
@@ -185,6 +226,7 @@ class ExperienceSection extends Component {
             forProp: 'job-location',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         <TextInput
           inputInfo={{
@@ -192,6 +234,7 @@ class ExperienceSection extends Component {
             forProp: 'start-date',
             key: uniqid(),
           }}
+          updateData={this.updateData}
         />
         <TextInput
           inputInfo={{
@@ -199,6 +242,15 @@ class ExperienceSection extends Component {
             forProp: 'end-date',
             key: uniqid(),
           }}
+          updateData={this.updateData}
+        />
+        <DescriptionInput
+          inputInfo={{
+            text: 'Description',
+            forProp: 'description',
+            key: uniqid(),
+          }}
+          updateData={this.updateData}
         />
         {btn}
       </div>

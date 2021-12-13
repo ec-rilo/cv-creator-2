@@ -1,59 +1,30 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { EducationSection } from './Sections';
 import { AddBtn } from '../Buttons/AddRemoveBtn';
 import uniqid from 'uniqid';
 
-class Education extends Component {
-  constructor(props) {
-    super(props);
+const Education = (props) => {
+  const { updateCategories } = props;
+  const key1 = uniqid();
+  const key2 = uniqid();
+  const [educationSections, setEducationSections] = useState([
+    {
+      key: key1,
+      sectionKey: key1,
+      isMainSection: true,
+      data: '',
+    },
+  ]);
 
-    const key1 = uniqid();
-    const key2 = uniqid();
-    this.state = {
-      educationSections: [
-        {
-          key: key1,
-          sectionKey: key1,
-          isMainSection: true,
-          data: '',
-        },
-      ],
-      section: {
-        key: key2,
-        sectionKey: key2,
-        isMainSection: true,
-      },
-    };
+  const [section, setSection] = useState({
+    key: key2,
+    sectionKey: key2,
+    isMainSection: true,
+  });
 
-    this.createSection = this.createSection.bind(this);
-    this.removeSection = this.removeSection.bind(this);
-  }
-
-  createSection = () => {
-    this.setState(
-      {
-        educationSections: this.state.educationSections.concat(
-          this.state.section
-        ),
-      },
-      () => {
-        this.updateMainSection(this.state.educationSections);
-      }
-    );
-
-    const newKey = uniqid();
-    this.setState({
-      section: {
-        key: newKey,
-        sectionKey: newKey,
-        isMainSection: true,
-      },
-    });
-  };
-
-  updateMainSection = (section) => {
-    this.setState({
-      educationSections: section.map((section, index, array) => {
+  const createSection = () => {
+    setEducationSections(
+      educationSections.concat(section).map((section, index, array) => {
         if (index === array.length - 1) {
           section.isMainSection = true;
           return section;
@@ -61,35 +32,38 @@ class Education extends Component {
           section.isMainSection = false;
           return section;
         }
-      }),
+      })
+    );
+
+    const newKey = uniqid();
+    setSection({
+      key: newKey,
+      sectionKey: newKey,
+      isMainSection: true,
     });
   };
 
-  updateEducationSections = (section, key) => {
-    let tempArr = [...this.state.educationSections];
+  const updateEducationSections = (section, key) => {
+    let tempArr = [...educationSections];
     tempArr.forEach((obj) => {
       if (obj.key === key) {
         obj.data = section;
       }
     });
 
-    this.setState(
-      {
-        educationSections: tempArr,
-      },
-      () => {
-        let newArr = [];
-        this.state.educationSections.forEach((section) => {
-          newArr.push(section.data);
-        });
-        this.props.updateCategories('Education', newArr);
-      }
-    );
+    setEducationSections(tempArr);
   };
+  useEffect(() => {
+    let newArr = [];
+    educationSections.forEach((section) => {
+      newArr.push(section.data);
+    });
+    updateCategories('Education', newArr);
+  }, [educationSections]);
 
-  removeSection = (sectionId) => {
-    this.setState({
-      educationSections: this.state.educationSections
+  const removeSection = (sectionId) => {
+    setEducationSections(
+      educationSections
         .filter((section) => section.sectionKey !== sectionId)
         .map((section, index, array) => {
           if (index === array.length - 1) {
@@ -99,37 +73,34 @@ class Education extends Component {
             section.isMainSection = false;
             return section;
           }
-        }),
-    });
+        })
+    );
   };
 
-  render() {
-    const { educationSections } = this.state;
-    if (educationSections.length === 0) {
-      return (
-        <div>
-          <AddBtn sectionKey={uniqid()} createSection={this.createSection} />
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          {educationSections.map((section) => {
-            return (
-              <EducationSection
-                key={section.key}
-                sectionKey={section.sectionKey}
-                isMainSection={section.isMainSection}
-                createSection={this.createSection}
-                removeSection={this.removeSection}
-                updateEducationSections={this.updateEducationSections}
-              />
-            );
-          })}
-        </div>
-      );
-    }
+  if (educationSections.length === 0) {
+    return (
+      <div>
+        <AddBtn sectionKey={uniqid()} createSection={createSection} />
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        {educationSections.map((section) => {
+          return (
+            <EducationSection
+              key={section.key}
+              sectionKey={section.sectionKey}
+              isMainSection={section.isMainSection}
+              createSection={createSection}
+              removeSection={removeSection}
+              updateEducationSections={updateEducationSections}
+            />
+          );
+        })}
+      </div>
+    );
   }
-}
+};
 
 export default Education;

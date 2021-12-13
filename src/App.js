@@ -1,64 +1,46 @@
 import './styles/reset.css';
 import './styles/App.css';
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import DataCollection from './components/DataCollection/DataCollection';
 import Resume from './components/Resume/Resume';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dataCategories: ['', '', '', ''],
-    };
+const App = () => {
+  const [dataCategories, setDataCategories] = useState(['', '', '', '']);
 
-    this.updateSectionData = this.updateSectionData.bind(this);
-    this.resumeData = this.resumeData.bind(this);
-  }
-
-  updateSectionData = (data, sectionName) => {
-    let categories = [...this.state.dataCategories];
+  const updateSectionData = (data, sectionName) => {
+    let categories = [...dataCategories];
     switch (sectionName) {
       case 'Personal Info':
         categories[0] = data;
-        this.setState({
-          dataCategories: categories,
-        });
+        setDataCategories(categories);
         break;
       case 'Experience':
         categories[1] = data;
-        this.setState({
-          dataCategories: categories,
-        });
+        setDataCategories(categories);
         break;
       case 'Education':
         categories[2] = data;
-        this.setState({
-          dataCategories: categories,
-        });
+        setDataCategories(categories);
         break;
       case 'Skills':
         categories[3] = data;
-        this.setState({
-          dataCategories: categories,
-        });
+        setDataCategories(categories);
         break;
       default:
         console.log('Error in updateSectionData() - App.js');
     }
   };
 
-  resumeData = () => {
-    return this.state.dataCategories;
+  const resumeData = () => {
+    return dataCategories;
   };
 
-  render() {
-    return (
-      <div className="main-container">
-        <DataCollection updateSectionData={this.updateSectionData} />
-        <Resume data={this.resumeData()} />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="main-container">
+      <DataCollection updateSectionData={updateSectionData} />
+      <Resume data={resumeData()} />
+    </div>
+  );
+};
 
 export default App;

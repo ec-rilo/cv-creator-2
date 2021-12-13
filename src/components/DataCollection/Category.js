@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../../styles/DataCollection.css';
 
-class Category extends Component {
-  render() {
-    const { name } = this.props;
-    return (
-      <div className="category-container">
-        <p>{name}</p>
-      </div>
-    );
-  }
-}
+const Category = (props) => {
+  const { name } = props;
+  return (
+    <div className="category-container">
+      <p>{name}</p>
+    </div>
+  );
+};
 
 export default Category;

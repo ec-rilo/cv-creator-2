@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import '../../styles/DataCollection.css';
 import Category from './Category';
 import ResetBtn from './Buttons/ResetBtn';

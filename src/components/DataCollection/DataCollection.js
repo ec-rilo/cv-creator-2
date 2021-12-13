@@ -10,10 +10,6 @@ import Skill from './Sections/Skill';
 
 const DataCollection = (props) => {
   const { updateSectionData } = props;
-  const [personalInfo, setPersonalInfo] = useState([]);
-  const [experience, setExperience] = useState('');
-  const [education, setEducation] = useState('');
-  const [skills, setSkills] = useState('');
 
   const updateCategories = (sectionName, data) => {
     let section = [];
@@ -21,22 +17,18 @@ const DataCollection = (props) => {
     switch (sectionName) {
       case 'Personal Info':
         section = [data];
-        setPersonalInfo(section);
         updateSectionData(section, 'Personal Info');
         break;
       case 'Experience':
         section = data;
-        setExperience(section);
         updateSectionData(section, 'Experience');
         break;
       case 'Education':
         section = [data];
-        setEducation(section);
         updateSectionData(section, 'Education');
         break;
       case 'Skills':
         section = data;
-        setSkills(section);
         updateSectionData(section, 'Skills');
         break;
       default:

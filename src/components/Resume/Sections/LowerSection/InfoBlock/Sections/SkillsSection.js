@@ -1,29 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class SkillsSection extends Component {
-  isNotValidData = (propName) => {
-    if (
-      this.props.data === undefined ||
-      this.props.data[propName] === '' ||
-      this.props.data === ''
-    ) {
+const SkillsSection = (props) => {
+  const { data } = props;
+  const isNotValidData = (propName) => {
+    if (data === undefined || data[propName] === '' || data === '') {
       return true;
     }
     return false;
   };
 
-  render() {
-    const { data } = this.props;
-    return (
-      <div className="skill-section">
-        <p>
-          {this.isNotValidData('skill-name')
-            ? 'Skill Name'
-            : data['skill-name']}
-        </p>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="skill-section">
+      <p>{isNotValidData('skill-name') ? 'Skill Name' : data['skill-name']}</p>
+    </div>
+  );
+};
 
 export default SkillsSection;

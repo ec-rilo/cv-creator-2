@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import {
   TextInput,
   ImgInput,
@@ -9,30 +9,23 @@ import {
 import { AddRemoveBtn, DeleteBtn } from '../Buttons/AddRemoveBtn';
 import uniqid from 'uniqid';
 
-class PersonalInfoSection extends Component {
-  constructor(props) {
-    super(props);
+const PersonalInfoSection = (props) => {
+  const { updateCategories } = props;
+  const [data, setData] = useState({
+    'first-name': '',
+    'last-name': '',
+    title: '',
+    'image-file': '',
+    city: '',
+    state: '',
+    phone: '',
+    email: '',
+    'linkedin-link': '',
+    description: '',
+  });
 
-    this.state = {
-      data: {
-        'first-name': '',
-        'last-name': '',
-        title: '',
-        'image-file': '',
-        city: '',
-        state: '',
-        phone: '',
-        email: '',
-        'linkedin-link': '',
-        description: '',
-      },
-    };
-
-    this.updateData = this.updateData.bind(this);
-  }
-
-  updateData = (inputName, value) => {
-    const newObj = { ...this.state.data };
+  const updateData = (inputName, value) => {
+    const newObj = { ...data };
 
     const sectionNames = [
       'description',
@@ -50,121 +43,119 @@ class PersonalInfoSection extends Component {
     sectionNames.forEach((sectionName) => {
       if (sectionName === inputName) {
         newObj[inputName] = value;
-        this.setState({ data: newObj }, () => {
-          this.props.updateCategories('Personal Info', this.state.data);
-        });
+        setData(newObj);
       }
     });
   };
+  useEffect(() => {
+    updateCategories('Personal Info', data);
+  }, [data]);
 
-  render() {
-    return (
-      <div>
-        <TextInput
-          inputInfo={{
-            text: 'First Name',
-            forProp: 'first-name',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-        <TextInput
-          inputInfo={{
-            text: 'Last Name',
-            forProp: 'last-name',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-        <TextInput
-          inputInfo={{
-            text: 'Title',
-            forProp: 'title',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-        <ImgInput
-          inputInfo={{
-            text: 'Image',
-            forProp: 'image-file',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-        <TextInput
-          inputInfo={{
-            text: 'City',
-            forProp: 'city',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-        <TextInput
-          inputInfo={{
-            text: 'State',
-            forProp: 'state',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-        <TelInput
-          inputInfo={{
-            text: 'Phone number',
-            forProp: 'phone',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-        <EmailInput
-          inputInfo={{
-            text: 'Email',
-            forProp: 'email',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-        <TextInput
-          inputInfo={{
-            text: 'Linkedin link',
-            forProp: 'linkedin-link',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-        <DescriptionInput
-          inputInfo={{
-            text: 'Description',
-            forProp: 'description',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <TextInput
+        inputInfo={{
+          text: 'First Name',
+          forProp: 'first-name',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+      <TextInput
+        inputInfo={{
+          text: 'Last Name',
+          forProp: 'last-name',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+      <TextInput
+        inputInfo={{
+          text: 'Title',
+          forProp: 'title',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+      <ImgInput
+        inputInfo={{
+          text: 'Image',
+          forProp: 'image-file',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+      <TextInput
+        inputInfo={{
+          text: 'City',
+          forProp: 'city',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+      <TextInput
+        inputInfo={{
+          text: 'State',
+          forProp: 'state',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+      <TelInput
+        inputInfo={{
+          text: 'Phone number',
+          forProp: 'phone',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+      <EmailInput
+        inputInfo={{
+          text: 'Email',
+          forProp: 'email',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+      <TextInput
+        inputInfo={{
+          text: 'Linkedin link',
+          forProp: 'linkedin-link',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+      <DescriptionInput
+        inputInfo={{
+          text: 'Description',
+          forProp: 'description',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+    </div>
+  );
+};
 
-class ExperienceSection extends Component {
-  constructor(props) {
-    super(props);
+const ExperienceSection = (props) => {
+  const {
+    sectionKey,
+    updateSection,
+    isMainSection,
+    createSection,
+    removeSection,
+  } = props;
+  const [data, setData] = useState({
+    position: '',
+    company: '',
+    'job-location': '',
+    'start-date': '',
+    'end-date': '',
+    description: '',
+  });
 
-    this.state = {
-      data: {
-        position: '',
-        company: '',
-        'job-location': '',
-        'start-date': '',
-        'end-date': '',
-        description: '',
-      },
-    };
-
-    this.updateData = this.updateData.bind(this);
-  }
-
-  updateData = (inputName, value) => {
-    const newObj = { ...this.state.data };
+  const updateData = (inputName, value) => {
+    const newObj = { ...data };
 
     const sectionNames = [
       'position',
@@ -178,104 +169,99 @@ class ExperienceSection extends Component {
     sectionNames.forEach((section) => {
       if (section === inputName) {
         newObj[inputName] = value;
-        this.setState({ data: newObj }, () => {
-          this.props.updateSection(this.state.data, this.props.sectionKey);
-        });
+        setData(newObj);
       }
     });
   };
+  useEffect(() => {
+    updateSection(data, sectionKey);
+  }, [data]);
 
-  render() {
-    const { isMainSection, createSection, removeSection, sectionKey } =
-      this.props;
-
-    let btn;
-    if (isMainSection === true) {
-      btn = (
-        <AddRemoveBtn
-          sectionKey={sectionKey}
-          isMainSection={isMainSection}
-          createSection={createSection}
-          removeSection={removeSection}
-        />
-      );
-    } else
-      btn = <DeleteBtn removeSection={removeSection} sectionKey={sectionKey} />;
-
-    return (
-      <div title="This is an Experience Section">
-        <TextInput
-          inputInfo={{
-            text: 'Position',
-            forProp: 'position',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-        <TextInput
-          inputInfo={{
-            text: 'Company',
-            forProp: 'company',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-        <TextInput
-          inputInfo={{
-            text: 'location',
-            forProp: 'job-location',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-        <TextInput
-          inputInfo={{
-            text: 'From',
-            forProp: 'start-date',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-        <TextInput
-          inputInfo={{
-            text: 'To',
-            forProp: 'end-date',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-        <DescriptionInput
-          inputInfo={{
-            text: 'Description',
-            forProp: 'description',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-        {btn}
-      </div>
+  let btn;
+  if (isMainSection === true) {
+    btn = (
+      <AddRemoveBtn
+        sectionKey={sectionKey}
+        isMainSection={isMainSection}
+        createSection={createSection}
+        removeSection={removeSection}
+      />
     );
-  }
-}
+  } else
+    btn = <DeleteBtn removeSection={removeSection} sectionKey={sectionKey} />;
 
-class EducationSection extends Component {
-  constructor(props) {
-    super(props);
+  return (
+    <div title="This is an Experience Section">
+      <TextInput
+        inputInfo={{
+          text: 'Position',
+          forProp: 'position',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+      <TextInput
+        inputInfo={{
+          text: 'Company',
+          forProp: 'company',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+      <TextInput
+        inputInfo={{
+          text: 'location',
+          forProp: 'job-location',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+      <TextInput
+        inputInfo={{
+          text: 'From',
+          forProp: 'start-date',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+      <TextInput
+        inputInfo={{
+          text: 'To',
+          forProp: 'end-date',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+      <DescriptionInput
+        inputInfo={{
+          text: 'Description',
+          forProp: 'description',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+      {btn}
+    </div>
+  );
+};
 
-    this.state = {
-      data: {
-        'uni-name': '',
-        degree: '',
-        'uni-start-date': '',
-        'uni-end-date': '',
-      },
-    };
+const EducationSection = (props) => {
+  const {
+    isMainSection,
+    createSection,
+    removeSection,
+    sectionKey,
+    updateEducationSections,
+  } = props;
+  const [data, setData] = useState({
+    'uni-name': '',
+    degree: '',
+    'uni-start-date': '',
+    'uni-end-date': '',
+  });
 
-    this.updateData = this.updateData.bind(this);
-  }
-
-  updateData = (inputName, value) => {
-    const newObj = { ...this.state.data };
+  const updateData = (inputName, value) => {
+    const newObj = { ...data };
 
     const sectionNames = [
       'uni-name',
@@ -287,136 +273,120 @@ class EducationSection extends Component {
     sectionNames.forEach((section) => {
       if (section === inputName) {
         newObj[inputName] = value;
-        this.setState({ data: newObj }, () => {
-          this.props.updateEducationSections(
-            this.state.data,
-            this.props.sectionKey
-          );
-        });
+        setData(newObj);
       }
     });
   };
+  useEffect(() => {
+    updateEducationSections(data, sectionKey);
+  }, [data]);
 
-  render() {
-    const { isMainSection, createSection, removeSection, sectionKey } =
-      this.props;
-
-    let btn;
-    if (isMainSection === true) {
-      btn = (
-        <AddRemoveBtn
-          sectionKey={sectionKey}
-          isMainSection={isMainSection}
-          createSection={createSection}
-          removeSection={removeSection}
-        />
-      );
-    } else
-      btn = <DeleteBtn removeSection={removeSection} sectionKey={sectionKey} />;
-
-    return (
-      <div title="This is an Education Section">
-        <TextInput
-          inputInfo={{
-            text: 'University Name',
-            forProp: 'uni-name',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-        <TextInput
-          inputInfo={{
-            text: 'Degree',
-            forProp: 'degree',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-        <TextInput
-          inputInfo={{
-            text: 'From',
-            forProp: 'uni-start-date',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-        <TextInput
-          inputInfo={{
-            text: 'To',
-            forProp: 'uni-end-date',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-        {btn}
-      </div>
+  let btn;
+  if (isMainSection === true) {
+    btn = (
+      <AddRemoveBtn
+        sectionKey={sectionKey}
+        isMainSection={isMainSection}
+        createSection={createSection}
+        removeSection={removeSection}
+      />
     );
-  }
-}
+  } else
+    btn = <DeleteBtn removeSection={removeSection} sectionKey={sectionKey} />;
 
-class SkillSection extends Component {
-  constructor(props) {
-    super(props);
+  return (
+    <div title="This is an Education Section">
+      <TextInput
+        inputInfo={{
+          text: 'University Name',
+          forProp: 'uni-name',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+      <TextInput
+        inputInfo={{
+          text: 'Degree',
+          forProp: 'degree',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+      <TextInput
+        inputInfo={{
+          text: 'From',
+          forProp: 'uni-start-date',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+      <TextInput
+        inputInfo={{
+          text: 'To',
+          forProp: 'uni-end-date',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+      {btn}
+    </div>
+  );
+};
 
-    this.state = {
-      data: {
-        'skill-name': '',
-      },
-    };
+const SkillSection = (props) => {
+  const {
+    isMainSection,
+    createSection,
+    removeSection,
+    sectionKey,
+    updateSkillsSection,
+  } = props;
+  const [data, setData] = useState({ 'skill-name': '' });
 
-    this.updateData = this.updateData.bind(this);
-  }
-
-  updateData = (inputName, value) => {
-    const newObj = { ...this.state.data };
+  const updateData = (inputName, value) => {
+    const newObj = { ...data };
 
     const sectionNames = ['skill-name'];
 
     sectionNames.forEach((section) => {
       if (section === inputName) {
         newObj[inputName] = value;
-        this.setState({ data: newObj }, () => {
-          this.props.updateSkillsSection(
-            this.state.data,
-            this.props.sectionKey
-          );
-        });
+
+        setData(newObj);
       }
     });
   };
+  useEffect(() => {
+    updateSkillsSection(data, sectionKey);
+  }, [data]);
 
-  render() {
-    const { isMainSection, createSection, removeSection, sectionKey } =
-      this.props;
-
-    let btn;
-    if (isMainSection === true) {
-      btn = (
-        <AddRemoveBtn
-          sectionKey={sectionKey}
-          isMainSection={isMainSection}
-          createSection={createSection}
-          removeSection={removeSection}
-        />
-      );
-    } else
-      btn = <DeleteBtn removeSection={removeSection} sectionKey={sectionKey} />;
-
-    return (
-      <div title="This is a Skills Section">
-        <TextInput
-          inputInfo={{
-            text: 'Skill',
-            forProp: 'skill-name',
-            key: uniqid(),
-          }}
-          updateData={this.updateData}
-        />
-        {btn}
-      </div>
+  let btn;
+  if (isMainSection === true) {
+    btn = (
+      <AddRemoveBtn
+        sectionKey={sectionKey}
+        isMainSection={isMainSection}
+        createSection={createSection}
+        removeSection={removeSection}
+      />
     );
-  }
-}
+  } else
+    btn = <DeleteBtn removeSection={removeSection} sectionKey={sectionKey} />;
+
+  return (
+    <div title="This is a Skills Section">
+      <TextInput
+        inputInfo={{
+          text: 'Skill',
+          forProp: 'skill-name',
+          key: uniqid(),
+        }}
+        updateData={updateData}
+      />
+      {btn}
+    </div>
+  );
+};
 
 export {
   PersonalInfoSection,

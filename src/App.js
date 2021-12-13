@@ -9,26 +9,15 @@ const App = () => {
 
   const updateSectionData = (data, sectionName) => {
     let categories = [...dataCategories];
-    switch (sectionName) {
-      case 'Personal Info':
-        categories[0] = data;
+
+    const cases = ['Personal Info', 'Experience', 'Education', 'Skills'];
+
+    cases.forEach((section, index) => {
+      if (section === sectionName) {
+        categories[index] = data;
         setDataCategories(categories);
-        break;
-      case 'Experience':
-        categories[1] = data;
-        setDataCategories(categories);
-        break;
-      case 'Education':
-        categories[2] = data;
-        setDataCategories(categories);
-        break;
-      case 'Skills':
-        categories[3] = data;
-        setDataCategories(categories);
-        break;
-      default:
-        console.log('Error in updateSectionData() - App.js');
-    }
+      }
+    });
   };
 
   const resumeData = () => {

@@ -1,85 +1,64 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ExperienceSection } from './Sections';
 import { AddBtn } from '../Buttons/AddRemoveBtn';
 import uniqid from 'uniqid';
 
-class Experience extends Component {
-  constructor(props) {
-    super(props);
+const Experience = (props) => {
+  const { updateCategories } = props;
+  const key1 = uniqid();
+  const key2 = uniqid();
+  const [experienceSections, setExperienceSections] = useState([
+    {
+      key: key1,
+      sectionKey: key1,
+      isMainSection: true,
+      data: '',
+    },
+  ]);
+  const [section, setSection] = useState({
+    key: key2,
+    sectionKey: key2,
+    isMainSection: true,
+  });
 
-    const key1 = uniqid();
-    const key2 = uniqid();
-    this.state = {
-      experienceSections: [
-        {
-          key: key1,
-          sectionKey: key1,
-          isMainSection: true,
-          data: '',
-        },
-      ],
-      section: {
-        key: key2,
-        sectionKey: key2,
-        isMainSection: true,
-      },
-    };
-
-    this.createSection = this.createSection.bind(this);
-    this.removeSection = this.removeSection.bind(this);
-    this.updateSection = this.updateSection.bind(this);
-  }
-
-  createSection = () => {
-    this.setState({
-      experienceSections: this.state.experienceSections
-        .concat(this.state.section)
-        .map((section, index, array) => {
-          if (index === array.length - 1) {
-            section.isMainSection = true;
-            return section;
-          } else {
-            section.isMainSection = false;
-            return section;
-          }
-        }),
-    });
+  const createSection = () => {
+    setExperienceSections(
+      experienceSections.concat(section).map((section, index, array) => {
+        if (index === array.length - 1) {
+          section.isMainSection = true;
+          return section;
+        } else {
+          section.isMainSection = false;
+          return section;
+        }
+      })
+    );
 
     const newKey = uniqid();
-    this.setState({
-      section: {
-        key: newKey,
-        sectionKey: newKey,
-        isMainSection: true,
-      },
-    });
+    setSection({ key: newKey, sectionKey: newKey, isMainSection: true });
   };
 
-  updateSection = (section, key) => {
-    let tempArr = [...this.state.experienceSections];
+  const updateSection = (section, key) => {
+    let tempArr = [...experienceSections];
     tempArr.forEach((obj) => {
       if (obj.key === key) {
         obj.data = section;
       }
     });
 
-    this.setState(
-      {
-        experienceSections: tempArr,
-      },
-      () => {
-        let newArr = [];
-        this.state.experienceSections.forEach((section) => {
-          newArr.push(section.data);
-        });
-        this.props.updateCategories('Experience', newArr);
-      }
-    );
+    setExperienceSections(tempArr);
   };
+  useEffect(() => {
+    let newArr = [];
+    experienceSections.forEach((section) => {
+      newArr.push(section.data);
+    });
+    updateCategories('Experience', newArr);
+  }, [experienceSections]);
 
-  removeSection = (sectionId) => {
-    this.setState({
-      experienceSections: this.state.experienceSections
+  const removeSection = (sectionId) => {
+    setExperienceSections(
+      experienceSections
         .filter((section) => section.sectionKey !== sectionId)
         .map((section, index, array) => {
           if (index === array.length - 1) {
@@ -89,37 +68,34 @@ class Experience extends Component {
             section.isMainSection = false;
             return section;
           }
-        }),
-    });
+        })
+    );
   };
 
-  render() {
-    const { experienceSections } = this.state;
-    if (experienceSections.length === 0) {
-      return (
-        <div>
-          <AddBtn sectionKey={uniqid()} createSection={this.createSection} />
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          {experienceSections.map((section) => {
-            return (
-              <ExperienceSection
-                key={section.key}
-                sectionKey={section.sectionKey}
-                isMainSection={section.isMainSection}
-                createSection={this.createSection}
-                removeSection={this.removeSection}
-                updateSection={this.updateSection}
-              />
-            );
-          })}
-        </div>
-      );
-    }
+  if (experienceSections.length === 0) {
+    return (
+      <div>
+        <AddBtn sectionKey={uniqid()} createSection={createSection} />
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        {experienceSections.map((section) => {
+          return (
+            <ExperienceSection
+              key={section.key}
+              sectionKey={section.sectionKey}
+              isMainSection={section.isMainSection}
+              createSection={createSection}
+              removeSection={removeSection}
+              updateSection={updateSection}
+            />
+          );
+        })}
+      </div>
+    );
   }
-}
+};
 
 export default Experience;

@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class CategoryTitle extends Component {
-  render() {
-    const { text } = this.props;
-    return (
-      <div className="category-title">
-        <p>{text}</p>
-      </div>
-    );
-  }
-}
+const CategoryTitle = (props) => {
+  const { text } = props;
+  return (
+    <div className="category-title">
+      <p>{text}</p>
+    </div>
+  );
+};
 
 export default CategoryTitle;

@@ -32,6 +32,9 @@ const Skill = (props) => {
         }
       })
     );
+
+    const newKey = uniqid();
+    setSection({ key: newKey, sectionKey: newKey, isMainSection: true });
   };
 
   const updateSkillsSection = (section, key) => {

@@ -59,6 +59,7 @@ const Education = (props) => {
       newArr.push(section.data);
     });
     updateCategories('Education', newArr);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [educationSections]);
 
   const removeSection = (sectionId) => {

@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   TextInput,
   ImgInput,
@@ -49,6 +49,7 @@ const PersonalInfoSection = (props) => {
   };
   useEffect(() => {
     updateCategories('Personal Info', data);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   return (
@@ -175,6 +176,7 @@ const ExperienceSection = (props) => {
   };
   useEffect(() => {
     updateSection(data, sectionKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   let btn;
@@ -279,6 +281,7 @@ const EducationSection = (props) => {
   };
   useEffect(() => {
     updateEducationSections(data, sectionKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   let btn;
@@ -358,6 +361,7 @@ const SkillSection = (props) => {
   };
   useEffect(() => {
     updateSkillsSection(data, sectionKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   let btn;

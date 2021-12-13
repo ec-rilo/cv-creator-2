@@ -54,6 +54,7 @@ const Experience = (props) => {
       newArr.push(section.data);
     });
     updateCategories('Experience', newArr);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [experienceSections]);
 
   const removeSection = (sectionId) => {

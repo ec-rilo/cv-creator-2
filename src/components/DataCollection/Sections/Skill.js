@@ -54,6 +54,7 @@ const Skill = (props) => {
     });
 
     updateCategories('Skills', newArr);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [skillSections]);
 
   const removeSection = (sectionId) => {

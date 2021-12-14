@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { SkillSection } from './Sections';
 import { AddBtn } from '../Buttons/AddRemoveBtn';
 import uniqid from 'uniqid';
@@ -46,31 +46,35 @@ const Skill = (props) => {
     });
 
     setSkillSections(tempArr);
-  };
-  useEffect(() => {
     let newArr = [];
-    skillSections.forEach((section) => {
+    tempArr.forEach((section) => {
       newArr.push(section.data);
     });
 
     updateCategories('Skills', newArr);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [skillSections]);
+  };
 
   const removeSection = (sectionId) => {
-    setSkillSections(
-      skillSections
-        .filter((section) => section.sectionKey !== sectionId)
-        .map((section, index, array) => {
-          if (index === array.length - 1) {
-            section.isMainSection = true;
-            return section;
-          } else {
-            section.isMainSection = false;
-            return section;
-          }
-        })
-    );
+    const filteredArr = skillSections
+      .filter((section) => section.sectionKey !== sectionId)
+      .map((section, index, array) => {
+        if (index === array.length - 1) {
+          section.isMainSection = true;
+          return section;
+        } else {
+          section.isMainSection = false;
+          return section;
+        }
+      });
+
+    setSkillSections(filteredArr);
+
+    let newArr = [];
+    filteredArr.forEach((section) => {
+      newArr.push(section.data);
+    });
+
+    updateCategories('Skills', newArr);
   };
 
   if (skillSections.length === 0) {

@@ -8,12 +8,18 @@
 <h4 align="center">CV Creation made easy.</h4>
 <p align="center"> <a href="https://ec-cv-creator.netlify.app/">View Live >></a></p>
 
+## Features
+This app generates a simple resume, collecting basic information such as your contact information, an image of yourself,
+work experience, education, and skills.
+
 ## Motivation and Story
 With this project I dove deep into the concepts of props and state with react. Finding creative ways to use them
 with as minimal use of the JavaScript equivalent as possible. Having used concepts like raising state and passing props
 to other components in order to update data while also dynamically creating and removing components throughout the project
 I now have a solid concept of how to use them! I also wanted to challenge myself in using react-testing-library which
 can be found sprinkled into the project.
+
+All components were created using functional components.
 
 ## Code Styles
 This project follows the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript).
